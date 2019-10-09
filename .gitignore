@@ -1,0 +1,15 @@
+#Filename extension
+*.pdf
+*.psd
+
+#File
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+
+#Folder
+build
+node_modules
+
+#Configs
+package-lock.json
