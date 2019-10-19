@@ -43,6 +43,7 @@ var paths = {
     source: './source/views/**/*.pug',
     build: './build/',
     watch: [
+      './source/blocks/**/*.pug',
       './source/components/**/*.pug',
       './source/views/**/*.pug'
     ]
@@ -51,6 +52,7 @@ var paths = {
     source: './source/styles/main.{css,less}',
     build: './build/styles/',
     watch: [
+      './source/blocks/**/*.{css,less}',
       './source/components/**/*.{css,less}',
       './source/styles/**/*.{css,less}'
     ]
@@ -59,12 +61,14 @@ var paths = {
     source: './source/scripts/**/*.js',
     build: './build/scripts/',
     watch: [
+      './source/blocks/**/*.js',
       './source/components/**/*.js',
       './source/scripts/**/*.js'
     ]
   },
   images: {
     source: [
+      './source/components/**/*.{gif,jpg,jpeg,png,svg}',
       './source/images/content/*.{gif,jpg,jpeg,png,svg}',
       './source/images/background/*.{gif,jpg,jpeg,png,svg}',
       '!./source/images/favicons/*.{gif,jpg,jpeg,png}',
@@ -74,6 +78,7 @@ var paths = {
     ],
     build: './build/images/',
     watch: [
+      './source/components/**/*.{gif, jpg, jpeg, png, svg}',
       './source/images/content/*.{gif,jpg,jpeg,png,svg}',
       './source/images/background/*.{gif,jpg,jpeg,png,svg}',
       '!./source/images/favicons/*.{gif,jpg,jpeg,png}',
@@ -124,7 +129,9 @@ function views() {
       this.emit('end');
       }
     }))
-    .pipe(pug())
+    .pipe(pug({
+      pretty: true
+    }))
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
     .pipe(gulpIf(argv.build, critical({
@@ -186,7 +193,7 @@ function styles() {
       autoPrefixer({
         grid: 'no-autoplace'
       }),
-      gulpIf(argv.build, pxToRem()),
+      pxToRem(),
       focus()
     ]))
     .pipe(gulpIf(argv.build, cleanCSS({
