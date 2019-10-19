@@ -1,38 +1,42 @@
 var gulp = require('gulp');
+var del = require('del');
+var rename = require('gulp-rename');
+var replace = require('gulp-replace');
+var gulpIf = require('gulp-if');
+var argv = require('yargs').argv;
+var browserSync = require('browser-sync').create();
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
+var debug = require('gulp-debug');
+var newer = require('gulp-newer');
+var merge = require('merge-stream');
+var buffer = require('vinyl-buffer');
+
+var pug = require('gulp-pug');
+var critical = require('critical').stream;
+var htmlMin = require('gulp-htmlmin');
+
 var less = require('gulp-less');
 var postCSS = require('gulp-postcss');
 var autoPrefixer = require('autoprefixer');
-var sourceMaps = require('gulp-sourcemaps');
-var del = require('del');
-var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
-var browserSync = require('browser-sync').create();
-var rename = require("gulp-rename");
-var replace = require('gulp-replace');
-var plumber = require('gulp-plumber');
-var argv = require('yargs').argv;
-var htmlMin = require('gulp-htmlmin');
-var concat = require('gulp-concat');
-var purgeCSS = require('gulp-purgecss');
+var pxToRem = require('postcss-pxtorem');
+var focus = require('postcss-focus');
 var gcmq = require('gulp-group-css-media-queries');
+var sourceMaps = require('gulp-sourcemaps');
+var purgeCSS = require('gulp-purgecss');
+var cleanCSS = require('gulp-clean-css');
+
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+
 var imageMin = require('gulp-imagemin');
-var imageMinPngQuant = require('imagemin-pngquant');
 var imageMinMozJpeg = require('imagemin-mozjpeg');
+var imageMinPngQuant = require('imagemin-pngquant');
 var imageMinWebp = require('imagemin-webp');
 var webp = require('gulp-webp');
 var favicon = require('gulp-favicons');
-var pxToRem = require('postcss-pxtorem');
-var focus = require('postcss-focus');
-var notify = require("gulp-notify");
-var debug = require('gulp-debug');
-var newer = require('gulp-newer');
-var svgSprite = require('gulp-svg-sprite');
 var spriteSmith = require('gulp.spritesmith');
-var merge = require('merge-stream');
-var buffer = require('vinyl-buffer');
-var critical = require('critical').stream;
-var pug = require('gulp-pug');
+var svgSprite = require('gulp-svg-sprite');
 
 var paths = {
   views: {
@@ -123,12 +127,6 @@ function views() {
     .pipe(pug())
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
-    .pipe(gulpIf(argv.build, htmlMin({
-      collapseWhitespace: true,
-      minifyCSS: true,
-      minifyJS: true,
-      removeComments: true
-    })))
     .pipe(gulpIf(argv.build, critical({
       base: 'paths.views.build',
       css: [
@@ -149,6 +147,12 @@ function views() {
       ],
       inline: true,
       minify: true
+    })))
+    .pipe(gulpIf(argv.build, htmlMin({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true
     })))
     .pipe(debug({
       title: 'HTML:'
@@ -182,7 +186,7 @@ function styles() {
       autoPrefixer({
         grid: 'no-autoplace'
       }),
-      pxToRem(),
+      gulpIf(argv.build, pxToRem()),
       focus()
     ]))
     .pipe(gulpIf(argv.build, cleanCSS({
@@ -335,7 +339,7 @@ function pngSprite() {
   var spriteData = gulp.src(paths.pngSprite.source)
     .pipe(spriteSmith({
       algorithm: 'top-down',
-      cssName: 'spritePng.scss',
+      cssName: 'spritePng.less',
       cssTemplate: './source/styles/helpers/spritePng.handlebars',
       imgName: 'sprite.png'
     }))
@@ -404,7 +408,7 @@ function svgSpriteStack() {
           prefix: '.',
           render: {
             scss: {
-              dest: './../../../source/styles/helpers/spriteSvg.scss',
+              dest: './../../../source/styles/helpers/spriteSvg.less',
               template: './source/styles/helpers/spriteSvg.handlebars'
             }
           },
@@ -415,7 +419,7 @@ function svgSpriteStack() {
         xmlDeclaration: ''
       }
     }))
-    .pipe(replace('@mixin .', '@mixin '))
+    .pipe(replace('.svg .', '.svg '))
     .pipe(replace('#.', '#'))
     .pipe(replace('-dims', ''))
     .pipe(debug({
@@ -512,6 +516,7 @@ function clean() {
 function watch() {
   if(argv.sync){
     browserSync.init({
+      host: 'localhost',
       notify: false,
       port: 7000,
       server: './build/',

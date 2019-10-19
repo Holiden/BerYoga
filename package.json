@@ -6,7 +6,7 @@
   },
   "main": "gulpfile.js",
   "browserslist": "defaults",
-  "repository": "https://github.com/Holiden/Weebly",
+  "repository": "https://github.com/Holiden/BerYoga",
   "scripts": {
     "dev": "gulp --dev --sync",
     "fix": "gulp --dev",
