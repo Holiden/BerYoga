@@ -28,6 +28,7 @@ var cleanCSS = require('gulp-clean-css');
 
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var include = require('gulp-include');
 
 var imageMin = require('gulp-imagemin');
 var imageMinMozJpeg = require('imagemin-mozjpeg');
@@ -182,13 +183,6 @@ function styles() {
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(less())
     .pipe(gcmq())
-    .pipe(purgeCSS({
-      content: [
-        './source/**/*.pug'
-      ],
-      keyframes: true,
-      whitelistPatterns: [/js/]
-    }))
     .pipe(postCSS([
       autoPrefixer({
         grid: 'no-autoplace'
@@ -226,6 +220,7 @@ function scripts() {
       this.emit('end');
       }
     }))
+    .pipe(include())
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(concat('main.js'))
     .pipe(gulpIf(argv.build, uglify()))
