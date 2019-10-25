@@ -23,7 +23,6 @@ var pxToRem = require('postcss-pxtorem');
 var focus = require('postcss-focus');
 var gcmq = require('gulp-group-css-media-queries');
 var sourceMaps = require('gulp-sourcemaps');
-var purgeCSS = require('gulp-purgecss');
 var cleanCSS = require('gulp-clean-css');
 
 var uglify = require('gulp-uglify');

@@ -1,23 +1,16 @@
 .main-header {
   .container;
 
-  min-height: 1330px;
-  padding-top: 4.4em;
-
-  background: url("./../images/header__bg.png") center top no-repeat;
-
-  @media (max-width: 1440px) {
-    background-position: 60% top;
-  }
+  margin-bottom: 9rem;
+  padding-top: 4.4rem;
 
   @media (max-width: 1024px) {
-    background-position: 70% top;
+    margin-bottom: 6rem;
   }
 
   @media (max-width: 768px) {
-    padding-top: 2em;
-
-    background-position: 75% top;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
   }
 
   &__navigation {
@@ -25,7 +18,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 1440px;
-    margin: 0 auto 8.9em;
+    margin: 0 auto;
   }
 
   &__logo {
@@ -44,17 +37,18 @@
 
     @media (max-width: 768px) {
       position: absolute;
-      top: 6.6em;
+      top: 6.6rem;
       right: 100%;
 
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding: 2em 0 3em;
+      padding: 2rem 0 3rem;
+      z-index: 1;
 
       background-color: @color-lightness;
-      border-top: 0.1em solid @color-accent;
-      border-bottom: 0.1em solid @color-accent;
+      border-top: 0.1rem solid @color-accent;
+      border-bottom: 0.1rem solid @color-accent;
 
       transition: right 0.3s 0.1s linear;
 
@@ -93,7 +87,7 @@
 
       text-align: center;
 
-      border-bottom: 0.1em solid @color-secondary;
+      border-bottom: 0.1rem solid @color-secondary;
 
       transition: border-color 0.3s linear;
 
@@ -200,8 +194,9 @@
 
     @media (max-width: 768px) {
       min-width: 320px;
+      line-height: 3;
 
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 }
