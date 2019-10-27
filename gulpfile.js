@@ -21,21 +21,21 @@ var postCSS = require('gulp-postcss');
 var autoPrefixer = require('autoprefixer');
 var pxToRem = require('postcss-pxtorem');
 var focus = require('postcss-focus');
-var gcmq = require('gulp-group-css-media-queries');
+var gmq = require('gulp-group-css-media-queries');
 var sourceMaps = require('gulp-sourcemaps');
-var cleanCSS = require('gulp-clean-css');
+var cssMin = require('gulp-clean-css');
 
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var include = require('gulp-include');
 
 var imageMin = require('gulp-imagemin');
-var imageMinMozJpeg = require('imagemin-mozjpeg');
-var imageMinPngQuant = require('imagemin-pngquant');
+var imageMinJpeg = require('imagemin-mozjpeg');
+var imageMinPng = require('imagemin-pngquant');
 var imageMinWebp = require('imagemin-webp');
 var webp = require('gulp-webp');
 var favicon = require('gulp-favicons');
-var spriteSmith = require('gulp.spritesmith');
+var pngSprite = require('gulp.spritesmith');
 var svgSprite = require('gulp-svg-sprite');
 
 var paths = {
@@ -181,7 +181,7 @@ function styles() {
     }))
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(less())
-    .pipe(gcmq())
+    .pipe(gmq())
     .pipe(postCSS([
       autoPrefixer({
         grid: 'no-autoplace'
@@ -189,7 +189,7 @@ function styles() {
       pxToRem(),
       focus()
     ]))
-    .pipe(gulpIf(argv.build, cleanCSS({
+    .pipe(gulpIf(argv.build, cssMin({
       level: 2
       })
     ))
@@ -242,7 +242,7 @@ function images() {
   return gulp.src(paths.images.source)
     .pipe(newer(paths.images.build))
     .pipe(gulpIf(argv.build, imageMin([
-      imageMinMozJpeg({
+      imageMinJpeg({
         smooth: 10,
         quality: 70
       }),
@@ -284,7 +284,7 @@ function images() {
           {sortAttrs: true}
         ]
       }),
-      imageMinPngQuant({
+      imageMinPng({
         dithering: 0.4,
         speed: 1,
         strip: true,
@@ -338,7 +338,7 @@ function favicons() {
 
 function pngSprite() {
   var spriteData = gulp.src(paths.pngSprite.source)
-    .pipe(spriteSmith({
+    .pipe(pngSprite({
       algorithm: 'top-down',
       cssName: 'spritePng.less',
       cssTemplate: './source/styles/helpers/spritePng.handlebars',
@@ -347,7 +347,7 @@ function pngSprite() {
   var imgStream = spriteData.img
     .pipe(buffer())
     .pipe(imageMin([
-      imageMinPngQuant({
+      imageMinPng({
         dithering: 0.4,
         padding: 30,
         speed: 1,
