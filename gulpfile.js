@@ -35,7 +35,7 @@ var imageMinPng = require('imagemin-pngquant');
 var imageMinWebp = require('imagemin-webp');
 var webp = require('gulp-webp');
 var favicon = require('gulp-favicons');
-var pngSprite = require('gulp.spritesmith');
+var spriteSmith = require('gulp.spritesmith');
 var svgSprite = require('gulp-svg-sprite');
 
 var paths = {
@@ -338,7 +338,7 @@ function favicons() {
 
 function pngSprite() {
   var spriteData = gulp.src(paths.pngSprite.source)
-    .pipe(pngSprite({
+    .pipe(spriteSmith({
       algorithm: 'top-down',
       cssName: 'spritePng.less',
       cssTemplate: './source/styles/helpers/spritePng.handlebars',
