@@ -24,4 +24,18 @@
 
     box-shadow: 0 0.06em @color-shadow, -0.28em 0.33em 2.72em 0.28em @color-shadow;
   }
+
+  &--link {
+    display: inline-block;
+
+    font-style: italic;
+    font-weight: 400;
+    color: @color-secondary;
+
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: @color-hover;
+    }
+  }
 }
