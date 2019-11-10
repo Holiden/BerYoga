@@ -40,21 +40,21 @@ var svgSprite = require('gulp-svg-sprite');
 
 var paths = {
   views: {
-    source: './source/views/**/*.pug',
+    source: './source/views/**/*.{html,pug}',
     build: './build/',
     watch: [
-      './source/blocks/**/*.pug',
-      './source/components/**/*.pug',
-      './source/views/**/*.pug'
+      './source/blocks/**/*.{html,pug}',
+      './source/components/**/*.{html,pug}',
+      './source/views/**/*.{html,pug}'
     ]
   },
   styles: {
-    source: './source/styles/main.{css,less}',
+    source: './source/styles/main.{css,less,sass,scss}',
     build: './build/styles/',
     watch: [
-      './source/blocks/**/*.{css,less}',
-      './source/components/**/*.{css,less}',
-      './source/styles/**/*.{css,less}'
+      './source/blocks/**/*.{css,less,sass,scss}',
+      './source/components/**/*.{css,less,sass,scss}',
+      './source/styles/**/*.{css,less,sass,scss}'
     ]
   },
   scripts: {

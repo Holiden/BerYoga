@@ -34,8 +34,29 @@
 
     transition: color 0.3s linear;
 
-    &:hover {
+    &::before {
+      position: absolute;
+
       color: @color-hover;
+      text-shadow: 0 0 1px rgba(255,255,255,0.3);
+
+      opacity: 0;
+
+      transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+      transition: transform 0.2s linear, opacity 0.2s linear;
+
+      content: attr(data-hover);
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: @color-light;
+
+      &:hover::before {
+        opacity: 1;
+
+        transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+      }
     }
   }
 }
