@@ -13,10 +13,12 @@ var merge = require('merge-stream');
 var buffer = require('vinyl-buffer');
 
 var pug = require('gulp-pug');
+var fileInclude = require('gulp-file-include');
 var critical = require('critical').stream;
 var htmlMin = require('gulp-htmlmin');
 
 var less = require('gulp-less');
+var sass = require('gulp-sass');
 var postCSS = require('gulp-postcss');
 var autoPrefixer = require('autoprefixer');
 var pxToRem = require('postcss-pxtorem');
@@ -132,6 +134,9 @@ function views() {
     .pipe(pug({
       pretty: true
     }))
+    .pipe(fileInclude({
+      prefix: '@'
+    }))
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
     .pipe(gulpIf(argv.build, critical({
@@ -181,6 +186,7 @@ function styles() {
     }))
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(less())
+    .pipe(sass())
     .pipe(gmq())
     .pipe(postCSS([
       autoPrefixer({
