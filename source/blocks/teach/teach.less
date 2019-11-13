@@ -1,0 +1,98 @@
+.teach {
+  .container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 1280px;
+  margin-bottom: 16.7rem;
+
+  background: url(../images/teach__bg.png) left center / 590px auto no-repeat;
+
+  @media (max-width: 1440px) {
+    max-width: 1280px;
+    margin-bottom: 9rem;
+
+    background-position: left bottom;
+    background-size: 550px auto;
+  }
+
+  @media (max-width: 1180px) {
+    background-size: 430px auto;
+  }
+
+  @media (max-width: 1024px) {
+    align-items: center;
+    margin-bottom: 6rem;
+
+    background: none;
+  }
+
+  &__heading {
+    max-width: 670px;
+    margin-bottom: 1.3em;
+
+    font-weight: 700;
+    font-size: @font-size-heading;
+    line-height: 1.2;
+    color: @color-heading;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 1em;
+
+      font-size: 45px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      max-width: none;
+
+      font-size: 40px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    max-width: 555px;
+    margin-bottom: 3em;
+
+    text-indent: 3.06em;
+
+    @media (max-width: 1024px) {
+      text-align: center;
+      text-indent: 0;
+    }
+
+    @media (max-width: 768px) {
+      max-width: none;
+      margin-bottom: 1em;
+      padding-left: 0;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      line-height: 2;
+    }
+  }
+
+  &__link {
+    align-self: center;
+    padding-left: 160px;
+
+    @media (max-width: 1024px) {
+      padding-left: 0;
+    }
+
+    @media (max-width: 768px) {
+      align-self: flex-end;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}

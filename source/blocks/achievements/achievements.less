@@ -3,7 +3,7 @@
 
   margin-bottom: 16.7rem;
 
-  background: url("./../images/achievements--left.png") left bottom no-repeat, url("./../images/achievements--right.png") top right no-repeat, url("./../images/achievements__bg.png") left 250px top no-repeat;
+  background: url("./../images/achievements--left.png") left bottom no-repeat, url("./../images/achievements--right.png") right top no-repeat, url("./../images/achievements__bg.png") left 250px top no-repeat;
 
   @media (max-width: 1440px) {
     margin-bottom: 9rem;
@@ -24,9 +24,9 @@
   }
 
   &__wrapper {
-    align-items: flex-end;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     max-width: 1280px;
     margin: 0 auto;
 
@@ -92,10 +92,11 @@
 
     &::before,
     &::after {
-      content: "";
       position: absolute;
 
       background-color: #ff6a6d;
+
+      content: "";
     }
 
     &::before {
