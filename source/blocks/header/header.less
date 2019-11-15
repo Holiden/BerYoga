@@ -14,8 +14,8 @@
   }
 
   &__navigation {
-    align-items: center;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     max-width: 1440px;
     margin: 0 auto;
@@ -31,9 +31,9 @@
 
 .navigation {
   &__wrapper {
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 
     @media (max-width: 768px) {
       position: absolute;
@@ -61,9 +61,9 @@
   }
 
   &__list-site {
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     max-width: 900px;
     margin-right: 5.8em;
 
@@ -132,9 +132,11 @@
       line-height: 4;
     }
 
-    &::after {
-      content: "";
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
 
+    &::after {
       display: block;
       height: 0.1em;
       width: 0;
@@ -142,6 +144,8 @@
       background-color: @color-hover;
 
       transition: width 0.3s linear;
+
+      content: "";
 
       @media (max-width: 768px) {
         display: none;
@@ -197,6 +201,10 @@
 
       font-size: 20px;
       line-height: 3;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
     }
   }
 }

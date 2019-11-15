@@ -53,6 +53,10 @@
     @media (max-width: 768px) {
       font-size: 40px;
     }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
   }
 
   &__list {
@@ -90,6 +94,10 @@
       margin-bottom: 1em;
     }
 
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
+
     &::before,
     &::after {
       position: absolute;
@@ -117,6 +125,13 @@
       width: 20px;
 
       transform: rotate(-45deg);
+    }
+  }
+
+  &__text {
+    @media (max-width: 480px) {
+      font-size: 14px;
+      line-height: 2;
     }
   }
 }
