@@ -41,10 +41,12 @@
       right: 100%;
       z-index: 1;
 
-      display: flex;
       flex-direction: column;
+      flex-wrap: nowrap;
+      overflow-y: scroll;
+      height: calc(100vh - 105px);
       width: 100%;
-      padding: 0 0 2rem;
+      padding: 0 10px 2rem;
 
       background-color: @color-lightness;
       border-top: 0.1rem solid @color-accent;
@@ -83,7 +85,7 @@
 
   &__item-site {
     @media (max-width: 768px) {
-      min-width: 320px;
+      min-width: 300px;
 
       text-align: center;
 
@@ -164,11 +166,11 @@
   &__list-user {
     display: flex;
     flex-wrap: wrap;
-    max-width: 160px;
+    // max-width: 160px;
 
-    @media (max-width: 768px) {
-      max-width: 320px;
-    }
+    // @media (max-width: 768px) {
+    //   max-width: 320px;
+    // }
   }
 
   &__item-user {
@@ -181,7 +183,7 @@
     }
 
     @media (max-width: 768px) {
-      max-width: 320px;
+      max-width: 300px;
       margin: 0.28em 0;
     }
   }
@@ -197,7 +199,7 @@
     }
 
     @media (max-width: 768px) {
-      min-width: 320px;
+      min-width: 300px;
 
       font-size: 20px;
       line-height: 3;
