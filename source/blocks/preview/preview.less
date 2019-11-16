@@ -13,6 +13,10 @@
     margin-bottom: 6rem;
   }
 
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+
   &__heading {
     max-width: 600px;
     margin-bottom: 1.3em;
@@ -29,6 +33,8 @@
     }
 
     @media (max-width: 768px) {
+      max-width: none;
+
       font-size: 40px;
     }
 
@@ -46,6 +52,7 @@
     }
 
     @media (max-width: 768px) {
+      max-width: none;
       margin-bottom: 2em;
     }
 
@@ -60,6 +67,10 @@
     flex-wrap: wrap;
     max-width: 550px;
     margin: 0 -0.7em;
+
+    @media (max-width: 768px) {
+      max-width: none;
+    }
   }
 
   &__link {
@@ -69,6 +80,10 @@
     font-size: 20px;
     line-height: 4;
     letter-spacing: 0.9px;
+
+    @media (max-width: 1024px) {
+      flex: 1 0 250px;
+    }
 
     @media (max-width: 768px) {
       line-height: 3;

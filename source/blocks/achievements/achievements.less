@@ -42,7 +42,6 @@
     font-size: @font-size-heading;
     line-height: 1.2;
     color: @color-heading;
-    text-align: center;
 
     @media (max-width: 1024px) {
       margin-bottom: 1em;
@@ -61,6 +60,10 @@
 
   &__list {
     max-width: 600px;
+
+    @media (max-width: 768px) {
+      max-width: none;
+    }
   }
 
   &__item {
