@@ -131,11 +131,11 @@ function views() {
       this.emit('end');
       }
     }))
-    .pipe(pug({
-      pretty: true
-    }))
     .pipe(fileInclude({
       prefix: '@'
+    }))
+    .pipe(pug({
+      pretty: true
     }))
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
