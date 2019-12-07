@@ -7,13 +7,12 @@
   justify-content: center;
 
   color: @color-accent;
-  text-align: center;
 
   border: 0.1em solid @color-accent;
   border-radius: 2em;
   box-shadow: 0 0.22em @color-shadow;
 
-  transition: color 0.3s linear, background-color 0.3s linear;
+  transition: color 0.2s linear, background-color 0.2s linear, box-shadow 0.2s linear;
 
   &:hover {
     color: @color-light;
@@ -41,7 +40,7 @@
       position: absolute;
 
       color: @color-hover;
-      text-shadow: 0 0 1px rgba(255,255,255,0.3);
+      text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 
       opacity: 0;
 
@@ -52,13 +51,17 @@
       pointer-events: none;
     }
 
+    &:visited {
+      color: @color-gray;
+    }
+
     &:hover {
       color: @color-light;
 
       &:hover::before {
         opacity: 1;
 
-        transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+        transform: scale(1) translateX(0) translateY(0) rotate(0);
       }
     }
   }
