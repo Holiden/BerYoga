@@ -8,6 +8,7 @@ Thumbs.db
 ehthumbs.db
 
 # Folder
+.idea
 build
 design
 node_modules
