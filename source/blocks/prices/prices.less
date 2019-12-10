@@ -11,10 +11,22 @@
 
   &__item {
     flex: 0 0 33.33%;
-    min-height: 700px;
+    min-height: 765px;
     border-radius: 20px;
     background-color: @color-light;
-    box-shadow: 0 0 100px 0 @color-shadow;
+
+    &:nth-child(1) {
+      box-shadow: -20px 5px 20px 0 @color-shadow;
+    }
+
+    &:nth-child(2) {
+      z-index: 1;
+      box-shadow: 0 0 20px 10px @color-shadow;
+    }
+
+    &:nth-child(3) {
+      box-shadow: 20px 5px 20px 0 @color-shadow;
+    }
   }
 
   &__title {
