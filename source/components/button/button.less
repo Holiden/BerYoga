@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
   color: @color-accent;
 
@@ -25,6 +26,19 @@
     top: 0.17em;
 
     box-shadow: 0 0.06em @color-shadow, -0.28em 0.33em 2.72em 0.28em @color-shadow;
+  }
+
+  &--blue {
+    border: none;
+    color: @color-light;
+    background-color: rgb(95, 206, 245);
+    box-shadow: 0 20px 20px 0.5px rgba(95, 206, 244, 0.3);
+
+    &:hover {
+      background-color: @color-hover;
+      background-image: none;
+      box-shadow: 0 20px 20px 0.5px rgba(226, 88, 91, 0.3);
+    }
   }
 
   &--link {
