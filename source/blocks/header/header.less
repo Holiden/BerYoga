@@ -1,17 +1,11 @@
 .main-header {
   .container;
 
-  margin-bottom: 9rem;
   padding-top: 4.4rem;
-
-  @media (max-width: 1024px) {
-    margin-bottom: 6rem;
-  }
 
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
     padding-top: 2rem;
   }
 
@@ -20,10 +14,14 @@
     align-items: center;
     justify-content: space-between;
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 0 auto 9rem;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 6rem;
+    }
 
     @media (max-width: 768px) {
-      margin: 0;
+      margin: 0 0 1.5rem;
     }
   }
 
