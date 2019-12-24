@@ -7,22 +7,30 @@ body {
   font-family: @font-family;
   color: @color-text;
 
-  background: url("./../images/header__bg.png") center top no-repeat;
+  background: url("./../images/header__bg.png") center top no-repeat, url("./../images/bg--footer.png") center bottom / 100% 27% no-repeat;
 
   @media (max-width: 1440px) {
-    background-position: 60% top;
+    background-position: 60% top, center bottom;
+    background-size: auto, auto 26%;
+  }
+
+  @media (max-width: 1180px) {
+    background-size: auto, auto 30%;
   }
 
   @media (max-width: 1024px) {
-    background-position: 70% top;
+    background-position: 70% top, center bottom;
+    background-size: auto, auto 33%;
   }
 
   @media (max-width: 768px) {
-    background-position: 30% -7%;
+    background-position: 30% -7%, center bottom;
+    background-size: auto, auto 40%;
   }
 
   @media (max-width: 480px) {
-    background-position: 30% -23%;
+    background-position: 30% -23%, center bottom;
+    background-size: auto, auto 45%;
   }
 }
 

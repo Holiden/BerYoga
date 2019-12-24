@@ -7,6 +7,14 @@
   padding: 100px 120px 50px;
   border-radius: 175px 175px 0 0;
   background-color: rgba(255, 255, 255, 0.5);
+
+  @media (max-width: 1024px) {
+    padding: 50px 120px 50px;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 100px 100px 0 0;
+  }
 }
 
 .main-footer__contacts,
@@ -15,6 +23,17 @@
 .main-footer__support {
   max-width: 210px;
   margin-bottom: 100px;
+
+  @media (max-width: 1024px) {
+    flex: 0 0 50%;
+    max-width: none;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+  }
 }
 
 .main-footer__copyright {
@@ -28,6 +47,11 @@
   color: @color-heading;
   letter-spacing: 1.8px;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
 }
 
 .main-footer__text {
@@ -37,18 +61,35 @@
   font-family: @font-family;
   font-size: 16px;
   color: @color-text;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 
 .main-footer__link {
-  display: block;
+  display: inline-block;
   font-weight: 400;
   font-size: 16px;
   color: @color-text;
   transition: color 0.3s ease;
-}
 
-.main-footer__link:hover {
-  color: @color-hover;
+  @media (max-width: 768px) {
+    padding: 5px 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+
+  &:hover {
+    color: @color-hover;
+  }
+
+  &[href^=mailto],
+  &[href^=tel] {
+    display: block;
+  }
 }
 
 .main-footer__note {
@@ -56,4 +97,8 @@
   color: @color-text;
   letter-spacing: 1.8px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
