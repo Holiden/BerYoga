@@ -10,7 +10,8 @@
 4. `БЭМ`;
 5. `VS Code`;
 6. `Avocode`;
-7. `Desktop First`.
+7. `Photoshop`;
+8. `Desktop First`.
 
 ## Контакты
 <holideny@gmail.com>  
