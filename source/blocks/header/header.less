@@ -42,8 +42,9 @@
 
     @media (max-width: 768px) {
       position: absolute;
-      top: 6.6rem;
-      right: 100%;
+      top: -100%;
+      right: 0;
+      left: 0;
       z-index: 1;
 
       flex-direction: column;
@@ -57,10 +58,10 @@
       border-top: 0.1rem solid @color-accent;
       border-bottom: 0.1rem solid @color-accent;
 
-      transition: right 0.3s 0.1s linear;
+      transition: top 0.3s 0.1s linear;
 
       &--active {
-        right: 0;
+        top: 6.6rem;
 
         display: flex;
       }
