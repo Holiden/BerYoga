@@ -29,6 +29,7 @@
     min-height: 640px;
     border-radius: 20px;
     background-color: @color-light;
+    transition: transform 0.2s linear;
 
     @media (max-width: 1180px) {
       margin: 0 5px 10px;
@@ -40,6 +41,11 @@
 
     @media (max-width: 480px) {
       min-width: 300px;
+    }
+
+    &:hover {
+      z-index: 2;
+      transform: scale(1.2);
     }
 
     &:nth-child(1) {
