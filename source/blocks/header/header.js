@@ -1,7 +1,9 @@
-const menu = document.querySelector('.navigation__wrapper');
+const body = document.querySelector('.main-page');
+const menu = document.querySelector('.main-header__navigation');
 const button = document.querySelector('.menu');
 
 button.addEventListener('click', () => {
-    button.classList.toggle('menu--active');
-    menu.classList.toggle('navigation__wrapper--active');
+  body.classList.toggle('main-page--active');
+  menu.classList.toggle('main-header__navigation--active');
+  button.classList.toggle('menu--active');
 });

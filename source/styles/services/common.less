@@ -1,4 +1,4 @@
-body {
+.main-page {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   font-weight: @font-weight;
@@ -67,6 +67,10 @@ body {
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  &--active {
+    overflow-y: hidden;
   }
 
 }
