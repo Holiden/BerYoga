@@ -16,33 +16,6 @@
     padding-top: 30px;
   }
 
-  &__navigation {
-    display: flex;
-
-    @media (max-width: 768px) {
-      position: absolute;
-      top: -100%;
-      right: 0;
-      left: 0;
-      z-index: 1;
-      align-items: center;
-      flex-direction: column;
-      overflow-y: scroll;
-      height: calc(100% - 114px);
-      width: 100%;
-      padding: 0 10px;
-      border-top: 1px solid @color-accent;
-      border-bottom: 1px solid @color-accent;
-      background-color: @color-lightness;
-      transition: top 0.3s 0.1s linear;
-
-      &--active {
-        top: 114px;
-        display: flex;
-      }
-    }
-  }
-
   &__logo {
     font-weight: 800;
     font-size: 32px;
