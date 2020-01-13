@@ -1,48 +1,41 @@
 .news {
   .container;
-
   display: flex;
   flex-direction: column;
   max-width: 1280px;
-  margin-bottom: 16.7rem;
-
+  margin-bottom: 260px;
   background: url("./../images/news__bg.png") center right / contain no-repeat;
 
   @media (max-width: 1440px) {
     max-width: 1280px;
-    margin-bottom: 9rem;
+    margin-bottom: 160px;
   }
 
   @media (max-width: 1024px) {
-    margin-bottom: 6rem;
-
+    margin-bottom: 110px;
     background-size: auto 450px;
   }
 
   @media (max-width: 768px) {
     align-items: center;
-
     background: none;
   }
 
   &__heading {
     max-width: 600px;
-    margin-bottom: 1.3em;
-
+    margin-bottom: 65px;
     font-weight: 700;
     font-size: @font-size-heading;
     line-height: 1.2;
     color: @color-heading;
 
     @media (max-width: 1024px) {
-      margin-bottom: 1em;
-
+      margin-bottom: 45px;
       font-size: 45px;
     }
 
     @media (max-width: 768px) {
       max-width: none;
-
       font-size: 40px;
       text-align: center;
     }
@@ -54,11 +47,9 @@
 
   &__author {
     position: relative;
-
     order: -1;
     align-self: flex-start;
-    margin-bottom: 0.5em;
-
+    margin-bottom: 10px;
     font-style: italic;
     font-weight: 400;
     font-size: 20px;
@@ -66,8 +57,7 @@
     color: @color-link;
 
     @media (max-width: 768px) {
-      margin-bottom: 0.2em;
-
+      margin-bottom: 5px;
       font-size: 16px;
     }
 
@@ -79,26 +69,22 @@
       position: absolute;
       bottom: 0.75em;
       left: 10.25em;
-
       height: 0.05em;
       width: 2.5em;
-
       background-color: @color-link;
-
       content: "";
     }
   }
 
   &__text {
     max-width: 390px;
-    margin-bottom: 3em;
-    padding-left: 3.06em;
+    margin-bottom: 70px;
+    padding-left: 55px;
 
     @media (max-width: 768px) {
       max-width: none;
-      margin-bottom: 1em;
+      margin-bottom: 30px;
       padding-left: 0;
-
       text-align: center;
     }
 
@@ -110,7 +96,7 @@
 
   &__link {
     align-self: flex-start;
-    margin-left: 3.06em;
+    margin-left: 55px;
 
     @media (max-width: 768px) {
       align-self: flex-end;
