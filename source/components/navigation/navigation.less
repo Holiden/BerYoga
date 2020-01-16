@@ -13,9 +13,9 @@
     height: calc(100% - 114px);
     width: 100%;
     padding: 0 10px;
-    border-top: 1px solid @color-accent;
-    border-bottom: 1px solid @color-accent;
-    background-color: @color-lightness;
+    border-top: 1px solid @color-coral;
+    border-bottom: 1px solid @color-coral;
+    background-color: @color-white-lightest;
     transition: top 0.3s 0.1s linear;
 
     &--active {
@@ -46,12 +46,12 @@
   &__item-site {
     @media (max-width: 768px) {
       min-width: 300px;
-      border-bottom: 1px solid @color-secondary;
+      border-bottom: 1px solid @color-blue;
       text-align: center;
       transition: border-color 0.3s linear;
 
       &:hover {
-        border-color: @color-accent;
+        border-color: @color-coral;
       }
     }
 
@@ -75,7 +75,7 @@
   &__link-site {
     font-weight: 400;
     line-height: 2;
-    color: @color-link;
+    color: @color-gray-dark;
     letter-spacing: 0.9px;
     transition: color 0.3s linear;
 
@@ -97,7 +97,7 @@
       display: block;
       height: 1px;
       width: 0;
-      background-color: @color-hover;
+      background-color: @color-coral;
       transition: width 0.3s linear;
       content: "";
 
@@ -107,7 +107,7 @@
     }
 
     &:hover {
-      color: @color-hover;
+      color: @color-coral;
 
       &::after {
         width: 100%;

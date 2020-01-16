@@ -28,7 +28,7 @@
     min-width: 361px;
     min-height: 640px;
     border-radius: 20px;
-    background-color: @color-light;
+    background-color: @color-white;
     transition: transform 0.2s linear;
 
     @media (max-width: 1180px) {
@@ -49,16 +49,16 @@
     }
 
     &:nth-child(1) {
-      box-shadow: -20px 5px 50px 0 @color-shadow;
+      box-shadow: -20px 5px 50px 0 @color-coral-dark;
 
       @media (max-width: 1180px) {
-        box-shadow: 0 0 50px 10px @color-shadow;
+        box-shadow: 0 0 50px 10px @color-coral-dark;
       }
     }
 
     &:nth-child(2) {
       z-index: 1;
-      box-shadow: 0 0 50px 10px @color-shadow;
+      box-shadow: 0 0 50px 10px @color-coral-dark;
 
       @media (max-width: 1180px) {
         order: 1;
@@ -66,10 +66,10 @@
     }
 
     &:nth-child(3) {
-      box-shadow: 20px 5px 50px 0 @color-shadow;
+      box-shadow: 20px 5px 50px 0 @color-coral-dark;
 
       @media (max-width: 1180px) {
-        box-shadow: 0 0 50px 10px @color-shadow;
+        box-shadow: 0 0 50px 10px @color-coral-dark;
       }
     }
   }
@@ -90,9 +90,9 @@
     }
 
     &--white {
-      color: @color-light;
+      color: @color-white;
       text-transform: uppercase;
-      background-color: @color-accent;
+      background-color: @color-coral;
     }
   }
 
@@ -111,7 +111,7 @@
     margin-bottom: 20px;
     padding-left: 60px;
     font-weight: 400;
-    color: @color-heading;
+    color: @color-gray-darker;
     background: url("./../images/check--blue.png") left center no-repeat;
 
     @media (max-width: 480px) {
@@ -135,7 +135,7 @@
     font-weight: 400;
     font-size: 150px;
     line-height: 1;
-    color: @color-heading;
+    color: @color-gray-darker;
     text-align: center;
 
     @media (max-width: 1180px) {
@@ -181,7 +181,7 @@
     margin-bottom: 30px;
     font-style: italic;
     font-weight: 400;
-    color: @color-heading;
+    color: @color-gray-darker;
     text-align: center;
 
     @media (max-width: 768px) {
