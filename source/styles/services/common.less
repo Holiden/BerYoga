@@ -5,7 +5,7 @@
   font-size: @font-size;
   line-height: @line-height;
   font-family: @font-family;
-  color: @color-gray-dark;
+  color: @color-black;
 
   background: url("./../images/header__bg.png") center top / 100% auto no-repeat, url("./../images/bg--footer.png") center bottom / 100% 27% no-repeat;
 
@@ -38,12 +38,9 @@
     top: 2115px;
     left: 0;
     z-index: -1;
-
-    height: 377px;
     width: 178px;
-
+    height: 377px;
     background-image: url("./../images/achievements--left.png");
-
     content: "";
 
     @media (max-width: 768px) {
@@ -56,12 +53,9 @@
     top: 1795px;
     right: 0;
     z-index: -1;
-
-    height: 488px;
     width: 132px;
-
+    height: 488px;
     background-image: url("./../images/achievements--right.png");
-
     content: "";
 
     @media (max-width: 768px) {
@@ -77,17 +71,13 @@
 
 .visually-hidden {
   position: absolute;
-
-  overflow: hidden;
   height: 1px;
   width: 1px;
-  margin: -1px;
-  padding: 0;
-
-  white-space: nowrap;
-
-  border: 0;
-
+  overflow: hidden;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(100%);
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
 }
