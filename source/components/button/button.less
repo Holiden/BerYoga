@@ -1,32 +1,26 @@
 .button {
   position: relative;
-
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 100%;
-
   color: @color-coral;
-
-  border: 0.1em solid @color-coral;
-  border-radius: 2em;
-  box-shadow: 0 0.22em @color-coral-dark;
-
+  border: 1px solid @color-coral;
+  border-radius: 40px;
+  box-shadow: 0 4px @color-coral-dark;
   transition: color 0.2s linear, background-color 0.2s linear;
   cursor: pointer;
 
   &:hover {
     color: @color-white;
-
     background-color: @color-coral;
-    box-shadow: 0 0.22em @color-coral-dark;
+    box-shadow: 0 4px @color-coral-dark;
   }
 
   &:active {
-    top: 0.17em;
-
-    box-shadow: 0 0.06em @color-coral-dark;
+    top: 3px;
+    box-shadow: 0 1px @color-coral-dark;
   }
 
   &--blue {
@@ -44,29 +38,19 @@
 
   &--link {
     display: inline-block;
-
     font-style: italic;
     font-weight: 400;
     color: @color-blue;
-
     transition: color 0.3s linear;
 
     &::before {
       position: absolute;
-
-      color: @color-coral;
-
       opacity: 0;
-
-      transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+      color: @color-coral;
       transition: transform 0.2s linear, opacity 0.2s linear;
-
+      transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
       content: attr(data-hover);
       pointer-events: none;
-    }
-
-    &:visited {
-      color: @color-gray;
     }
 
     &:hover {
@@ -74,7 +58,6 @@
 
       &:hover::before {
         opacity: 1;
-
         transform: scale(1) translateX(0) translateY(0) rotate(0);
       }
     }
