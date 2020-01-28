@@ -1,12 +1,12 @@
 .main-page {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
+  overflow-x: hidden;
   font-weight: @font-weight;
   font-size: @font-size;
   line-height: @line-height;
   font-family: @font-family;
   color: @color-black;
-
   background: url("./../images/header__bg.png") center top / 100% auto no-repeat, url("./../images/bg--footer.png") center bottom / 100% 27% no-repeat;
 
   @media (max-width: 1440px) {
@@ -38,10 +38,14 @@
     top: 2115px;
     left: 0;
     z-index: -1;
-    width: 178px;
-    height: 377px;
-    background-image: url("./../images/achievements--left.png");
+    width: 220px;
+    height: 1950px;
+    background: url("./../images/achievements--left.png") left top no-repeat, url("./../images/articles--left.png") left bottom no-repeat;
     content: "";
+
+    @media (max-width: 1440px) {
+      background: url("./../images/achievements--left.png") left top no-repeat;
+    }
 
     @media (max-width: 768px) {
       display: none;
@@ -53,10 +57,14 @@
     top: 1795px;
     right: 0;
     z-index: -1;
-    width: 132px;
-    height: 488px;
-    background-image: url("./../images/achievements--right.png");
+    width: 200px;
+    height: 2470px;
+    background: url("./../images/achievements--right.png") right top no-repeat, url("./../images/articles--right--bottom.png") right bottom no-repeat, url("./../images/articles--right--top.png") right bottom 100px no-repeat;
     content: "";
+
+    @media (max-width: 1440px) {
+      background: url("./../images/achievements--right.png") right top no-repeat;
+    }
 
     @media (max-width: 768px) {
       display: none;
