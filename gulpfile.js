@@ -411,7 +411,7 @@ function svgSpriteStack() {
           dest: './',
           prefix: '.',
           render: {
-            scss: {
+            less: {
               dest: './../../../source/styles/helpers/spriteSvg.less',
               template: './source/styles/helpers/spriteSvg.handlebars'
             }
