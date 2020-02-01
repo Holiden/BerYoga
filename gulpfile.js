@@ -134,9 +134,9 @@ function views() {
     .pipe(fileInclude({
       prefix: '@'
     }))
-    .pipe(pug({
-      pretty: true
-    }))
+    // .pipe(pug({
+    //   pretty: true
+    // }))
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
     .pipe(gulpIf(argv.build, critical({
@@ -527,7 +527,7 @@ function watch() {
       notify: false,
       port: 7000,
       server: './build/',
-      tunnel: 'development-site',
+      // tunnel: 'development-site',
       ui: false
     })
   }
