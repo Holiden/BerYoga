@@ -1,0 +1,42 @@
+.input {
+  height: 65px;
+  width: 100%;
+  padding: 35px 44px 16px 20px;
+  color: @color-black;
+  background-color: @color-gray-light;
+  border: 1px solid @color-gray;
+  border-radius: 8px;
+  transition: border-color 0.3s linear;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid @color-blue;
+    outline: none;
+  }
+
+  &:focus ~ .input__label,
+  &:not(:focus):valid ~ .input__label {
+    top: -13px;
+    font-size: 14px;
+  }
+
+  &:focus ~ .button--dontshow,
+  &:not(:focus):valid ~ .button--dontshow {
+    visibility: visible;
+  }
+
+  &::placeholder {
+    visibility: hidden;
+    font-size: 0;
+  }
+
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    line-height: 65px;
+    color: @color-gray;
+    transition: top 0.3s linear, font-size 0.3s linear;
+    cursor: pointer;
+  }
+}

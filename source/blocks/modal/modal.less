@@ -1,0 +1,67 @@
+.modal {
+  display: none;
+
+  &--active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background-color: @color-black;
+  }
+
+  &__window {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    border: 1px solid @color-coral;
+    border-radius: 10px;
+    background-color: @color-white;
+  }
+
+  &__heading {
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.2;
+    color: @color-gray-darker;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  }
+
+  &__sign-in {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    min-height: 65px;
+    margin-bottom: 20px;
+  }
+}
