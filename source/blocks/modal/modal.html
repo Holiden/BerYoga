@@ -1,44 +1,25 @@
-<section class="modal">
-  <h2 class="visually-hidden">Personal Area</h2>
-  <a class="modal__link modal__link--disabled">Sign In</a>
-  <a class="modal__link modal__link--active" href="#">Sign Up</a>
-  <form class="modal__form" action="#" method="post">
-    <label class="modal__wrapper" for="modal-login-in">
-      <input class="modal__field" id="modal-login-in" name="login" type="text" placeholder="Login" required>
-      Login
-    </label>
-    <label class="modal__wrapper" for="modal-password-in">
-      <input class="modal__field" id="modal-password-in" name="password" type="password" placeholder="Password" required>
-      Password
-    </label>
-    <label class="modal__wrapper">
-      <input class="visually-hidden modal__checkbox" name="remember" type="checkbox" required>
-      <span class="modal__checkbox-indicator"></span>
-      Remember me
-    </label>
-    <a class="modal__link--forgot" href="#">Forgot password?</a>
-    <button class="modal__button--submit" type="submit">Sign In</button>
-  </form>
-  <button class="modal__button--close" type="button"><span class="visually-hidden">Close</span></button>
-</section>
-<section class="modal">
-  <h2 class="visually-hidden">Personal Area</h2>
-  <a class="modal__link modal__link--active" href="#">Sign In</a>
-  <a class="modal__link modal__link--disabled">Sign Up</a>
-  <form class="modal__form" action="#" method="post">
-      <label  class="modal__wrapper" for="modal-login-up">
-        <input class="modal__field" id="modal-login-up" name="login" type="text" placeholder="Login" required>
-        Login
-      </label>
-      <label  class="modal__wrapper" for="modal-password-up">
-        <input class="modal__field" id="modal-password-up" name="password" type="password" placeholder="Password" required>
-        Password
-      </label>
-      <label  class="modal__wrapper" for="modal-password-confirm">
-        <input class="modal__field" id="modal-password-confirm" name="password-confirm" type="password" placeholder="Confirm password" required>
-        Confirm password
-      </label>
-    <button class="modal__button--submit" type="submit">Sign Up</button>
-  </form>
-  <button class="modal__button--close" type="button"><span class="visually-hidden">Close</span></button>
+<section class="modal js-login">
+  <div class="modal__window">
+    <header class="modal__header">
+      <button class="button--close js-modal-close" type="button"><span class="visually-hidden">Close</span></button>
+      <h2 class="visually-hidden">Personal Area</h2>
+      <h3 class="modal__heading">Sign In</h3>
+    </header>
+    <section class="modal__sign-in">
+      <form class="modal__form" id="signIn" action="#" method="post">
+        <div class="modal__wrapper">
+          <input class="input js-inputText" id="signInLogin" name="login" type="text" placeholder="Login" required>
+          <label class="input__label" for="signInLogin">Login</label>
+          <button class="button--reset js-buttonReset" type="reset"><span class="visually-hidden">Clear the field</span></button>
+        </div>
+        <div class="modal__wrapper">
+          <input class="input js-inputPassword" id="signInPassword" name="password" type="password" placeholder="Password" required>
+          <label class="input__label" for="signInPassword">Password</label>
+          <button class="button--show js-buttonShow" type="button"><span class="visually-hidden">Show password</span></button>
+        </div>
+        <button class="modal__button button button--blue js-buttonSubmit" type="submit">Sign In</button>
+      </form>
+      <a class="modal__link button--link" href="#" data-hover="Forgot password?">Forgot password?</a>
+    </section>
+  </div>
 </section>
