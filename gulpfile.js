@@ -12,13 +12,11 @@ var newer = require('gulp-newer');
 var merge = require('merge-stream');
 var buffer = require('vinyl-buffer');
 
-var pug = require('gulp-pug');
 var fileInclude = require('gulp-file-include');
 var critical = require('critical').stream;
 var htmlMin = require('gulp-htmlmin');
 
 var less = require('gulp-less');
-var sass = require('gulp-sass');
 var postCSS = require('gulp-postcss');
 var autoPrefixer = require('autoprefixer');
 var pxToRem = require('postcss-pxtorem');
