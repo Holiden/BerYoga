@@ -181,7 +181,6 @@ function styles() {
     }))
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(less())
-    .pipe(sass())
     .pipe(gmq())
     .pipe(postCSS([
       autoPrefixer({
