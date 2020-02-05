@@ -1,36 +1,41 @@
 .button {
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: @color-coral;
-  border: 1px solid @color-coral;
+  font-weight: 500;
   border-radius: 40px;
-  box-shadow: 0 4px @color-coral-dark;
+  outline: none;
   transition: color 0.3s linear, background-color 0.3s linear;
   cursor: pointer;
 
-  &:hover {
-    color: @color-white;
-    background-color: @color-coral;
-    box-shadow: 0 4px @color-coral-dark;
-  }
+  &--coral {
+    border: 1px solid @color-coral;
+    color: @color-coral;
+    background-color: transparent;
 
-  &:active {
-    top: 3px;
-    box-shadow: 0 1px @color-coral-dark;
+    &:hover {
+      color: @color-white;
+      background-color: @color-coral;
+    }
+
+    &:active {
+      background-color: @color-coral-dark;
+    }
   }
 
   &--blue {
-    border: none;
-    font-weight: 500;
     color: @color-white;
     background-color: @color-blue;
 
     &:hover {
       background-color: @color-coral;
+    }
+
+    &:active {
+      background-color: @color-coral-dark;
     }
   }
 
