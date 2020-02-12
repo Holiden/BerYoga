@@ -7,6 +7,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 3;
     display: block;
     background-color: @color-black;
   }
@@ -56,11 +57,16 @@
     }
   }
 
-  &__sign-in {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  &__sign-in,
+  &__sign-up {
+    display: none;
+
+    &--active {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__form {
