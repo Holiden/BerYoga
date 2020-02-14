@@ -1,14 +1,38 @@
 const modalLogin = document.querySelector('.js-login');
-const linkLogin = document.querySelector('.js-link-login');
-const buttonClose = document.querySelector('.js-modal-close');
+const modalIn = document.querySelector('.js-modalIn');
+const modalUp = document.querySelector('.js-modalUp');
+const buttonMenuLogin = document.querySelector('.js-buttonMenuLogin');
+const buttonPreviewLogin = document.querySelector('.js-buttonPreviewLogin');
+const buttonPricesIndividualLogin = document.querySelector('.js-buttonPricesIndividualLogin');
+const buttonPricesBestLogin = document.querySelector('.js-buttonPricesBestLogin');
+const buttonPricesClassLogin = document.querySelector('.js-buttonPricesClassLogin');
+const buttonClose = document.querySelector('.js-buttonClose');
 const buttonShow = document.querySelector('.js-buttonShow');
 const buttonReset = document.querySelector('.js-buttonReset');
 const buttonSubmit = document.querySelector('.js-buttonSubmit');
-const fieldPassword = document.querySelector('.js-inputPassword');
+const buttonIn = document.querySelector('.js-buttonIn');
+const buttonUp = document.querySelector('.js-buttonUp');
 const fieldText = document.querySelector('.js-inputText');
+const fieldPassword = document.querySelector('.js-inputPassword');
 
-linkLogin.addEventListener('click', (event) => {
-  modalLogin.classList.toggle('modal--active');
+buttonMenuLogin.addEventListener('click', () => {
+  modalLogin.classList.add('modal--active');
+});
+
+buttonPreviewLogin.addEventListener('click', () => {
+  modalLogin.classList.add('modal--active');
+});
+
+buttonPricesIndividualLogin.addEventListener('click', () => {
+  modalLogin.classList.add('modal--active');
+});
+
+buttonPricesBestLogin.addEventListener('click', () => {
+  modalLogin.classList.add('modal--active');
+});
+
+buttonPricesClassLogin.addEventListener('click', () => {
+  modalLogin.classList.add('modal--active');
 });
 
 buttonClose.addEventListener('click', () => {
@@ -17,6 +41,7 @@ buttonClose.addEventListener('click', () => {
 
 buttonSubmit.addEventListener('click', (event) => {
   event.preventDefault();
+
   modalLogin.classList.remove('modal--active');
 });
 
@@ -43,6 +68,8 @@ buttonShow.addEventListener('click', () => {
 fieldText.addEventListener('keyup', () => {
   if (fieldText.value.length != 0) {
     buttonReset.style.visibility = 'visible';
+  } else {
+    buttonReset.style.visibility = 'hidden';
   }
 });
 
@@ -51,4 +78,22 @@ buttonReset.addEventListener('click', (event) => {
 
   fieldText.value = '';
   buttonReset.style.visibility = 'hidden';
+});
+
+buttonUp.addEventListener('click', () => {
+  buttonIn.classList.toggle('modal__tab--active');
+  buttonUp.classList.toggle('modal__tab--active');
+  modalIn.classList.toggle('modal__sign-in--active');
+  buttonIn.removeAttribute('disabled');
+  modalUp.classList.toggle('modal__sign-up--active');
+  buttonUp.setAttribute('disabled', 'true');
+});
+
+buttonIn.addEventListener('click', () => {
+  buttonUp.classList.toggle('modal__tab--active');
+  buttonIn.classList.toggle('modal__tab--active');
+  modalIn.classList.toggle('modal__sign-in--active');
+  buttonUp.removeAttribute('disabled');
+  modalUp.classList.toggle('modal__sign-up--active');
+  buttonIn.setAttribute('disabled', 'true');
 });
