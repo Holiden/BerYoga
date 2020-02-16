@@ -7,13 +7,20 @@ const buttonPricesIndividualLogin = document.querySelector('.js-buttonPricesIndi
 const buttonPricesBestLogin = document.querySelector('.js-buttonPricesBestLogin');
 const buttonPricesClassLogin = document.querySelector('.js-buttonPricesClassLogin');
 const buttonClose = document.querySelector('.js-buttonClose');
-const buttonShow = document.querySelector('.js-buttonShow');
-const buttonReset = document.querySelector('.js-buttonReset');
-const buttonSubmit = document.querySelector('.js-buttonSubmit');
 const buttonIn = document.querySelector('.js-buttonIn');
 const buttonUp = document.querySelector('.js-buttonUp');
-const fieldText = document.querySelector('.js-inputText');
-const fieldPassword = document.querySelector('.js-inputPassword');
+const buttonResetLoginIn = document.querySelector('.js-buttonResetLoginIn');
+const buttonResetLoginUp = document.querySelector('.js-buttonResetLoginUp');
+const buttonShowPasswordIn = document.querySelector('.js-buttonShowPasswordIn');
+const buttonShowPasswordUp = document.querySelector('.js-buttonShowPasswordUp');
+const buttonShowPasswordConfirmUp = document.querySelector('.js-buttonShowPasswordConfirmUp');
+const buttonSubmitIn = document.querySelector('.js-buttonSubmitIn');
+const buttonSubmitUp = document.querySelector('.js-buttonSubmitUp');
+const inputLoginIn = document.querySelector('.js-inputLoginIn');
+const inputPasswordIn = document.querySelector('.js-inputPasswordIn');
+const inputLoginUp = document.querySelector('.js-inputLoginUp');
+const inputPasswordUp = document.querySelector('.js-inputPasswordUp');
+const inputPasswordConfirmUp = document.querySelector('.js-inputPasswordConfirmUp');
 
 buttonMenuLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
@@ -39,45 +46,106 @@ buttonClose.addEventListener('click', () => {
   modalLogin.classList.remove('modal--active');
 });
 
-buttonSubmit.addEventListener('click', (event) => {
+buttonSubmitIn.addEventListener('click', (event) => {
   event.preventDefault();
 
   modalLogin.classList.remove('modal--active');
 });
 
-fieldPassword.addEventListener('keyup', () => {
-  if (fieldPassword.value.length != 0) {
-    buttonShow.style.visibility = 'visible';
-  } else {
-    buttonShow.style.visibility = 'hidden';
-  }
-});
-
-buttonShow.addEventListener('click', () => {
-  if (fieldPassword.type === 'password') {
-    fieldPassword.setAttribute('type', 'text');
-    buttonShow.classList.toggle('button--show');
-    buttonShow.classList.toggle('button--dontshow');
-  } else {
-    fieldPassword.setAttribute('type', 'password');
-    buttonShow.classList.toggle('button--show');
-    buttonShow.classList.toggle('button--dontshow');
-  }
-});
-
-fieldText.addEventListener('keyup', () => {
-  if (fieldText.value.length != 0) {
-    buttonReset.style.visibility = 'visible';
-  } else {
-    buttonReset.style.visibility = 'hidden';
-  }
-});
-
-buttonReset.addEventListener('click', (event) => {
+buttonSubmitUp.addEventListener('click', (event) => {
   event.preventDefault();
 
-  fieldText.value = '';
-  buttonReset.style.visibility = 'hidden';
+  modalLogin.classList.remove('modal--active');
+});
+
+inputLoginIn.addEventListener('keyup', () => {
+  if (inputLoginIn.value.length != 0) {
+    buttonResetLoginIn.style.visibility = 'visible';
+  } else {
+    buttonResetLoginIn.style.visibility = 'hidden';
+  }
+});
+
+buttonResetLoginIn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  inputLoginIn.value = '';
+  buttonResetLoginIn.style.visibility = 'hidden';
+});
+
+inputPasswordIn.addEventListener('keyup', () => {
+  if (inputPasswordIn.value.length != 0) {
+    buttonShowPasswordIn.style.visibility = 'visible';
+  } else {
+    buttonShowPasswordIn.style.visibility = 'hidden';
+  }
+});
+
+buttonShowPasswordIn.addEventListener('click', () => {
+  if (inputPasswordIn.type === 'password') {
+    inputPasswordIn.setAttribute('type', 'text');
+    buttonShowPasswordIn.classList.toggle('button--show');
+    buttonShowPasswordIn.classList.toggle('button--dontshow');
+  } else {
+    inputPasswordIn.setAttribute('type', 'password');
+    buttonShowPasswordIn.classList.toggle('button--show');
+    buttonShowPasswordIn.classList.toggle('button--dontshow');
+  }
+});
+
+inputLoginUp.addEventListener('keyup', () => {
+  if (inputLoginUp.value.length != 0) {
+    buttonResetLoginUp.style.visibility = 'visible';
+  } else {
+    buttonResetLoginUp.style.visibility = 'hidden';
+  }
+});
+
+buttonResetLoginUp.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  inputLoginUp.value = '';
+  buttonResetLoginUp.style.visibility = 'hidden';
+});
+
+inputPasswordUp.addEventListener('keyup', () => {
+  if (inputPasswordUp.value.length != 0) {
+    buttonShowPasswordUp.style.visibility = 'visible';
+  } else {
+    buttonShowPasswordUp.style.visibility = 'hidden';
+  }
+});
+
+buttonShowPasswordUp.addEventListener('click', () => {
+  if (inputPasswordUp.type === 'password') {
+    inputPasswordUp.setAttribute('type', 'text');
+    buttonShowPasswordUp.classList.toggle('button--show');
+    buttonShowPasswordUp.classList.toggle('button--dontshow');
+  } else {
+    inputPasswordUp.setAttribute('type', 'password');
+    buttonShowPasswordUp.classList.toggle('button--show');
+    buttonShowPasswordUp.classList.toggle('button--dontshow');
+  }
+});
+
+inputPasswordConfirmUp.addEventListener('keyup', () => {
+  if (inputPasswordConfirmUp.value.length != 0) {
+    buttonShowPasswordConfirmUp.style.visibility = 'visible';
+  } else {
+    buttonShowPasswordConfirmUp.style.visibility = 'hidden';
+  }
+});
+
+buttonShowPasswordConfirmUp.addEventListener('click', () => {
+  if (inputPasswordConfirmUp.type === 'password') {
+    inputPasswordConfirmUp.setAttribute('type', 'text');
+    buttonShowPasswordConfirmUp.classList.toggle('button--show');
+    buttonShowPasswordConfirmUp.classList.toggle('button--dontshow');
+  } else {
+    inputPasswordConfirmUp.setAttribute('type', 'password');
+    buttonShowPasswordConfirmUp.classList.toggle('button--show');
+    buttonShowPasswordConfirmUp.classList.toggle('button--dontshow');
+  }
 });
 
 buttonUp.addEventListener('click', () => {
