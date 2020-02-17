@@ -26,6 +26,14 @@
     border: 1px solid @color-coral;
     border-radius: 10px;
     background-color: @color-white;
+
+    @media (max-width: 768px) {
+      top: 0;
+      bottom: 0;
+      max-width: none;
+      border: none;
+      border-radius: 0;
+    }
   }
 
   &__header {
@@ -83,5 +91,15 @@
   &__button {
     min-height: 65px;
     margin-bottom: 20px;
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
+  &__link {
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 }
