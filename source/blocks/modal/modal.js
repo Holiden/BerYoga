@@ -1,3 +1,4 @@
+const page = document.querySelector('.main-page');
 const modalLogin = document.querySelector('.js-login');
 const modalIn = document.querySelector('.js-modalIn');
 const modalUp = document.querySelector('.js-modalUp');
@@ -24,38 +25,46 @@ const inputPasswordConfirmUp = document.querySelector('.js-inputPasswordConfirmU
 
 buttonMenuLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
+  page.style.overflow = 'hidden';
 });
 
 buttonPreviewLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
+  page.style.overflow = 'hidden';
 });
 
 buttonPricesIndividualLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
+  page.style.overflow = 'hidden';
 });
 
 buttonPricesBestLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
+  page.style.overflow = 'hidden';
 });
 
 buttonPricesClassLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
+  page.style.overflow = 'hidden';
 });
 
 buttonClose.addEventListener('click', () => {
   modalLogin.classList.remove('modal--active');
+  page.style.overflow = 'auto';
 });
 
 buttonSubmitIn.addEventListener('click', (event) => {
   event.preventDefault();
 
   modalLogin.classList.remove('modal--active');
+  page.style.overflow = 'auto';
 });
 
 buttonSubmitUp.addEventListener('click', (event) => {
   event.preventDefault();
 
   modalLogin.classList.remove('modal--active');
+  page.style.overflow = 'auto';
 });
 
 inputLoginIn.addEventListener('keyup', () => {
