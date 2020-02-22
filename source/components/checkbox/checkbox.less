@@ -45,5 +45,14 @@
     line-height: 1.5;
     color: @color-gray;
     text-decoration: underline;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: @color-gray-dark;
+    }
+
+    &:active {
+      color: @color-gray-darker;
+    }
   }
 }
