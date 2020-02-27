@@ -2,24 +2,24 @@
   display: flex;
 
   @media (max-width: 768px) {
-    position: absolute;
-    top: -100%;
+    position: fixed;
+    top: 114px;
     right: 0;
-    left: 0;
+    left: -100%;
     z-index: 1;
     align-items: center;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100% - 114px);
     width: 100%;
     padding: 0 10px;
     border-top: 1px solid @color-coral;
     border-bottom: 1px solid @color-coral;
     background-color: @color-white;
-    transition: top 0.3s 0.1s linear;
+    transition: left 0.3s 0.1s linear;
 
     &--active {
-      top: 114px;
+      left: 0;
       display: flex;
     }
   }
