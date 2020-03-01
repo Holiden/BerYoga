@@ -10,7 +10,7 @@
     z-index: 3;
     overflow-y: auto;
     display: block;
-    background-color: @color-black;
+    background-color: @color-black-lightest;
   }
 
   &__window {
@@ -41,28 +41,28 @@
     display: flex;
     width: 100%;
     margin-bottom: 30px;
-    border-bottom: 1px solid @color-gray;
+    border-bottom: 1px solid @color-gray-dark;
   }
 
   &__tab {
     flex: 0 0 50%;
     padding-bottom: 10px;
     font-weight: 500;
-    color: @color-gray;
+    color: @color-gray-dark;
     transition: color 0.3s linear;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      color: @color-black;
+      color: @color-black-light;
     }
 
     &--active {
       border-bottom: 2px solid @color-blue;
-      color: @color-gray-darker;
+      color: @color-black;
 
       &:hover {
-        color: @color-gray-darker;
+        color: @color-black;
       }
     }
   }

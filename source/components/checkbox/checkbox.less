@@ -3,7 +3,7 @@
   padding-left: 25px;
   font-size: 14px;
   line-height: 1.5;
-  color: @color-gray;
+  color: @color-gray-dark;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
 
@@ -24,11 +24,11 @@
     }
 
     &:disabled + .checkbox__box {
-      box-shadow: 0 0 0 1px @color-gray;
+      box-shadow: 0 0 0 1px @color-gray-dark;
     }
 
     &:disabled:checked + .checkbox__box {
-      background-color: @color-gray;
+      background-color: @color-gray-dark;
     }
   }
 
@@ -38,24 +38,24 @@
     width: 12px;
     margin: 3px 0 0 -25px;
     border-radius: 2px;
-    box-shadow: 0 0 0 1px @color-gray;
+    box-shadow: 0 0 0 1px @color-gray-dark;
   }
 
   &__link {
     font-size: 14px;
     line-height: 1.5;
-    color: @color-gray;
+    color: @color-gray-dark;
     text-decoration: underline;
     transition: color 0.3s linear;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      color: @color-gray-dark;
+      color: @color-gray-dark-darker;
     }
 
     &:active {
-      color: @color-gray-darker;
+      color: @color-black;
     }
   }
 }
