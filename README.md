@@ -18,4 +18,4 @@
 [telegram](https://t.me/holiden)  
 [vk](https://vk.com/holiden)
 
-![Screenshot макета](https://github.com/Holiden/BerYoga/blob/master/source/images/background/screenshot.jpg)
+![Screenshot макета](https://github.com/Holiden/BerYoga/blob/master/source/images/screenshot.png)
