@@ -1,36 +1,36 @@
-const gulp = require('gulp');
-const del = require('del');
-const rename = require('gulp-rename');
-const replace = require('gulp-replace');
-const gulpIf = require('gulp-if');
-const argv = require('yargs').argv;
-const browserSync = require('browser-sync').create();
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const debug = require('gulp-debug');
-const newer = require('gulp-newer');
+const gulp = require('gulp')
+const del = require('del')
+const rename = require('gulp-rename')
+const replace = require('gulp-replace')
+const gulpIf = require('gulp-if')
+const argv = require('yargs').argv
+const browserSync = require('browser-sync').create()
+const plumber = require('gulp-plumber')
+const notify = require('gulp-notify')
+const debug = require('gulp-debug')
+const newer = require('gulp-newer')
 
-const fileInclude = require('gulp-file-include');
-const critical = require('critical').stream;
-const htmlMin = require('gulp-htmlmin');
+const fileInclude = require('gulp-file-include')
+const critical = require('critical').stream
+const htmlMin = require('gulp-htmlmin')
 
-const less = require('gulp-less');
-const postCSS = require('gulp-postcss');
-const autoPrefixer = require('autoprefixer');
-const pxToRem = require('postcss-pxtorem');
-const focus = require('postcss-focus');
-const gmq = require('gulp-group-css-media-queries');
-const sourceMaps = require('gulp-sourcemaps');
-const cssMin = require('gulp-clean-css');
+const less = require('gulp-less')
+const postCSS = require('gulp-postcss')
+const autoPrefixer = require('autoprefixer')
+const pxToRem = require('postcss-pxtorem')
+const focus = require('postcss-focus')
+const gmq = require('gulp-group-css-media-queries')
+const sourceMaps = require('gulp-sourcemaps')
+const cssMin = require('gulp-clean-css')
 
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
-const include = require('gulp-include');
+const uglify = require('gulp-uglify')
+const concat = require('gulp-concat')
+const include = require('gulp-include')
 
-const imageMin = require('gulp-imagemin');
-const imageMinPng = require('imagemin-pngquant');
-const favicon = require('gulp-favicons');
-const svgSprite = require('gulp-svg-sprite');
+const imageMin = require('gulp-imagemin')
+const imageMinPng = require('imagemin-pngquant')
+const favicon = require('gulp-favicons')
+const svgSprite = require('gulp-svg-sprite')
 
 const paths = {
   views: {
@@ -89,7 +89,7 @@ const paths = {
     build: './build/fonts/',
     watch: './source/fonts/**/*.{woff,woff2}'
   }
-};
+}
 
 function views() {
   return gulp.src(paths.views.source)
