@@ -2,18 +2,13 @@
 * text=auto
 
 # Source code
-*.css   text
 *.html  text
 *.js    text
 *.json  text
 *.less  text
-*.pug   text
-*.sass  text
-*.scss  text
 
 # Documentation
 *.md     text
-*.txt    text
 LICENSE  text
 
 # Configs
@@ -25,12 +20,8 @@ package-lock.json  text -diff
 
 # Graphics
 *.ico   binary
-*.gif   binary
-*.jpg   binary
-*.jpeg  binary
 *.png   binary
 *.svg   text
-*.webp  binary
 
 # Fonts
 *.woff   binary

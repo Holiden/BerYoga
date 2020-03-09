@@ -1,60 +1,54 @@
-var gulp = require('gulp');
-var del = require('del');
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-var gulpIf = require('gulp-if');
-var argv = require('yargs').argv;
-var browserSync = require('browser-sync').create();
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var debug = require('gulp-debug');
-var newer = require('gulp-newer');
-var merge = require('merge-stream');
-var buffer = require('vinyl-buffer');
+const gulp = require('gulp');
+const del = require('del');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const gulpIf = require('gulp-if');
+const argv = require('yargs').argv;
+const browserSync = require('browser-sync').create();
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const debug = require('gulp-debug');
+const newer = require('gulp-newer');
 
-var fileInclude = require('gulp-file-include');
-var critical = require('critical').stream;
-var htmlMin = require('gulp-htmlmin');
+const fileInclude = require('gulp-file-include');
+const critical = require('critical').stream;
+const htmlMin = require('gulp-htmlmin');
 
-var less = require('gulp-less');
-var postCSS = require('gulp-postcss');
-var autoPrefixer = require('autoprefixer');
-var pxToRem = require('postcss-pxtorem');
-var focus = require('postcss-focus');
-var gmq = require('gulp-group-css-media-queries');
-var sourceMaps = require('gulp-sourcemaps');
-var cssMin = require('gulp-clean-css');
+const less = require('gulp-less');
+const postCSS = require('gulp-postcss');
+const autoPrefixer = require('autoprefixer');
+const pxToRem = require('postcss-pxtorem');
+const focus = require('postcss-focus');
+const gmq = require('gulp-group-css-media-queries');
+const sourceMaps = require('gulp-sourcemaps');
+const cssMin = require('gulp-clean-css');
 
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var include = require('gulp-include');
+const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
+const include = require('gulp-include');
 
-var imageMin = require('gulp-imagemin');
-var imageMinJpeg = require('imagemin-mozjpeg');
-var imageMinPng = require('imagemin-pngquant');
-var imageMinWebp = require('imagemin-webp');
-var webp = require('gulp-webp');
-var favicon = require('gulp-favicons');
-var spriteSmith = require('gulp.spritesmith');
-var svgSprite = require('gulp-svg-sprite');
+const imageMin = require('gulp-imagemin');
+const imageMinPng = require('imagemin-pngquant');
+const favicon = require('gulp-favicons');
+const svgSprite = require('gulp-svg-sprite');
 
-var paths = {
+const paths = {
   views: {
-    source: './source/views/**/*.{html,pug}',
+    source: './source/views/**/*.html',
     build: './build/',
     watch: [
-      './source/blocks/**/*.{html,pug}',
-      './source/components/**/*.{html,pug}',
-      './source/views/**/*.{html,pug}'
+      './source/blocks/**/*.html',
+      './source/components/**/*.html',
+      './source/views/**/*.html'
     ]
   },
   styles: {
-    source: './source/styles/main.{css,less,sass,scss}',
+    source: './source/styles/main.less',
     build: './build/styles/',
     watch: [
-      './source/blocks/**/*.{css,less,sass,scss}',
-      './source/components/**/*.{css,less,sass,scss}',
-      './source/styles/**/*.{css,less,sass,scss}'
+      './source/blocks/**/*.less',
+      './source/components/**/*.less',
+      './source/styles/**/*.less'
     ]
   },
   scripts: {
@@ -68,49 +62,27 @@ var paths = {
   },
   images: {
     source: [
-      './source/components/**/*.{gif,jpg,jpeg,png,svg}',
-      './source/images/content/*.{gif,jpg,jpeg,png,svg}',
-      './source/images/background/*.{gif,jpg,jpeg,png,svg}',
-      '!./source/images/favicons/*.{gif,jpg,jpeg,png}',
-      '!./source/images/png/*.png',
-      '!./source/images/svg/stack/*.svg',
-      '!./source/images/svg/symbol/*.svg'
+      './source/images/*.png',
+      './source/images/background/*.png',
+      '!./source/images/favicons/*.png',
+      '!./source/images/svg/stack/*.svg'
     ],
     build: './build/images/',
     watch: [
-      './source/components/**/*.{gif, jpg, jpeg, png, svg}',
-      './source/images/content/*.{gif,jpg,jpeg,png,svg}',
-      './source/images/background/*.{gif,jpg,jpeg,png,svg}',
-      '!./source/images/favicons/*.{gif,jpg,jpeg,png}',
-      '!./source/images/png/*.png',
-      '!./source/images/svg/stack/*.svg',
-      '!./source/images/svg/symbol/*.svg'
+      './source/images/background/*.png',
+      '!./source/images/favicons/*.png',
+      '!./source/images/svg/stack/*.svg'
     ]
   },
-  imagesWebp: {
-    source: './source/images/content/*.{gif,jpg,jpeg,png}',
-    build: './build/images/',
-    watch: './source/images/content/*.{gif,jpg,jpeg,png}'
-  },
   favicons: {
-    source: './source/images/favicons/*.{gif,jpg,jpeg,png}',
-    build: './build/images/favicons/',
-    watch: './source/images/favicons/*.{gif,jpg,jpeg,png}'
-  },
-  pngSprite: {
-    source: './source/images/png/*.png',
-    build: './build/images/sprites/',
-    watch: './source/images/png/*.png'
+    source: './source/images/favicons/*.png',
+    build: './build/',
+    watch: './source/images/favicons/*.png'
   },
   svgSpriteStack: {
     source: './source/images/svg/stack/*.svg',
     build: './build/images/sprites/',
     watch: './source/images/svg/stack/*.svg'
-  },
-  svgSpriteSymbol: {
-    source: './source/images/svg/symbol/*.svg',
-    build: './build/images/sprites/',
-    watch: './source/images/svg/symbol/*.svg'
   },
   fonts: {
     source: './source/fonts/**/*.{woff,woff2}',
@@ -121,12 +93,13 @@ var paths = {
 
 function views() {
   return gulp.src(paths.views.source)
-    .pipe(plumber({errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'HTML Error'
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'HTML Error'
       }),
       function() {
-      this.emit('end');
+        this.emit('end');
       }
     }))
     .pipe(fileInclude({
@@ -170,13 +143,13 @@ function views() {
 
 function styles() {
   return gulp.src(paths.styles.source)
-    .pipe(plumber({errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'CSS Error',
-      wait: true
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'HTML Error'
       }),
       function() {
-      this.emit('end');
+        this.emit('end');
       }
     }))
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
@@ -191,16 +164,13 @@ function styles() {
     ]))
     .pipe(gulpIf(argv.build, cssMin({
       level: 2
-      })
-    ))
+    })))
     .pipe(gulpIf(argv.build, rename({
       suffix: '.min'
-      })
-    ))
+    })))
     .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
       addComment: false
-      }
-    )))
+    })))
     .pipe(debug({
       title: 'CSS:'
     }))
@@ -210,13 +180,13 @@ function styles() {
 
 function scripts() {
   return gulp.src(paths.scripts.source)
-    .pipe(plumber({errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'JS Error',
-      wait: true
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'HTML Error'
       }),
       function() {
-      this.emit('end');
+        this.emit('end');
       }
     }))
     .pipe(include())
@@ -225,12 +195,10 @@ function scripts() {
     .pipe(gulpIf(argv.build, uglify()))
     .pipe(gulpIf(argv.build, rename({
       suffix: '.min'
-      })
-    ))
+    })))
     .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
       addComment: false
-      }
-    )))
+    })))
     .pipe(debug({
       title: 'Scripts:'
     }))
@@ -242,48 +210,6 @@ function images() {
   return gulp.src(paths.images.source)
     .pipe(newer(paths.images.build))
     .pipe(gulpIf(argv.build, imageMin([
-      imageMinJpeg({
-        smooth: 10,
-        quality: 70
-      }),
-      imageMin.gifsicle({
-        interlaced: true,
-        optimizationLevel: 3
-      }),
-      imageMin.svgo({
-        plugins: [
-          {cleanupAttrs: true},
-          {cleanupListOfValues: true},
-          {collapseGroups: true},
-          {convertColors: true},
-          {convertEllipseToCircle: true},
-          {convertPathData: true},
-          {convertShapeToPath: true},
-          {convertTransform: true},
-          {mergePaths: true},
-          {minifyStyles: true},
-          {moveElemsAttrsToGroup: true},
-          {removeComments: true},
-          {removeDesc: true},
-          {removeDimensions: true},
-          {removeDoctype: true},
-          {removeEditorsNSData: true},
-          {removeEmptyAttrs: true},
-          {removeEmptyContainers: true},
-          {removeEmptyText: true},
-          {removeHiddenElems: true},
-          {removeMetadata: true},
-          {removeNonInheritableGroupAttrs: true},
-          {removeOffCanvasPaths: true},
-          {removeScriptElement: true},
-          {removeTitle: true},
-          {removeUnknownsAndDefaults: true},
-          {removeUnusedNS: true},
-          {removeUselessStrokeAndFill: true},
-          {removeXMLProcInst: true},
-          {sortAttrs: true}
-        ]
-      }),
       imageMinPng({
         dithering: 0.4,
         speed: 1,
@@ -295,24 +221,6 @@ function images() {
       title: 'Images:'
     }))
     .pipe(gulp.dest(paths.images.build))
-}
-
-function imagesWebp() {
-  return gulp.src(paths.imagesWebp.source)
-    .pipe(newer({
-      dest: paths.imagesWebp.build,
-      ext: '.webp'
-    }))
-    .pipe(webp(gulpIf(argv.build, imageMin([
-      imageMinWebp({
-        alphaQuality: 70,
-        lossless: true,
-        method: 6,
-        quality: 70
-      })
-    ]))))
-    .pipe(debug({title: 'ImagesWebp:'}))
-    .pipe(gulp.dest(paths.imagesWebp.build))
 }
 
 function favicons() {
@@ -336,34 +244,9 @@ function favicons() {
     .pipe(gulp.dest(paths.favicons.build))
 }
 
-function pngSprite() {
-  var spriteData = gulp.src(paths.pngSprite.source)
-    .pipe(spriteSmith({
-      algorithm: 'top-down',
-      cssName: 'spritePng.less',
-      cssTemplate: './source/styles/helpers/spritePng.handlebars',
-      imgName: 'sprite.png'
-    }))
-  var imgStream = spriteData.img
-    .pipe(buffer())
-    .pipe(imageMin([
-      imageMinPng({
-        dithering: 0.4,
-        padding: 30,
-        speed: 1,
-        strip: true,
-        quality: [0, 1]
-      })
-    ]))
-    .pipe(gulp.dest(paths.pngSprite.build))
-  var cssStream = spriteData.css
-    .pipe(gulp.dest('./source/styles/helpers/'))
-  return merge(imgStream, cssStream)
-}
-
 function svgSpriteStack() {
   return gulp.src(paths.svgSpriteStack.source)
-    .pipe(imageMin([
+    .pipe(gulpIf(argv.build, imageMin([
       imageMin.svgo({
         plugins: [
           {cleanupAttrs: true},
@@ -399,7 +282,7 @@ function svgSpriteStack() {
           {sortAttrs: true}
         ]
       })
-    ]))
+    ])))
     .pipe(svgSprite({
       dest: './',
       mode: {
@@ -429,78 +312,6 @@ function svgSpriteStack() {
     .pipe(gulp.dest(paths.svgSpriteStack.build))
 }
 
-function svgSpriteSymbol() {
-  return gulp.src(paths.svgSpriteSymbol.source)
-    .pipe(imageMin([
-      imageMin.svgo({
-        plugins: [
-          {cleanupAttrs: true},
-          {cleanupListOfValues: true},
-          {cleanupNumericValues: {
-            floatPrecision: 0
-            }
-          },
-          {collapseGroups: true},
-          {convertColors: true},
-          {convertEllipseToCircle: true},
-          {convertPathData: true},
-          {convertShapeToPath: true},
-          {convertTransform: true},
-          {mergePaths: true},
-          {minifyStyles: true},
-          {moveElemsAttrsToGroup: true},
-          {removeAttrs: {
-            attrs: [
-              'clip.*',
-              'fill.*',
-              'stroke.*'
-            ]}
-          },
-          {removeComments: true},
-          {removeDesc: true},
-          {removeDimensions: true},
-          {removeDoctype: true},
-          {removeEditorsNSData: true},
-          {removeEmptyAttrs: true},
-          {removeEmptyContainers: true},
-          {removeEmptyText: true},
-          {removeHiddenElems: true},
-          {removeMetadata: true},
-          {removeNonInheritableGroupAttrs: true},
-          {removeOffCanvasPaths: true},
-          {removeScriptElement: true},
-          {removeStyleElement: true},
-          {removeTitle: true},
-          {removeUnknownsAndDefaults: true},
-          {removeUnusedNS: true},
-          {removeUselessStrokeAndFill: true},
-          {removeXMLProcInst: true},
-          {sortAttrs: true}
-        ]
-      })
-    ]))
-    .pipe(rename({
-      prefix: 'icon_'
-    }))
-    .pipe(svgSprite({
-      dest: './',
-      mode: {
-        symbol: {
-          dest: './',
-          inline: true,
-          sprite: 'sprite.symbol.svg'
-        }
-      },
-      svg: {
-        dimensionAttributes: false
-      }
-    }))
-    .pipe(debug({
-      title: 'SVG Sprite Symbol:'
-    }))
-    .pipe(gulp.dest(paths.svgSpriteSymbol.build))
-}
-
 function fonts() {
   return gulp.src(paths.fonts.source)
     .pipe(newer(paths.fonts.build))
@@ -515,7 +326,7 @@ function clean() {
 }
 
 function watch() {
-  if(argv.sync){
+  if (argv.sync) {
     browserSync.init({
       host: 'localhost',
       notify: false,
@@ -528,12 +339,9 @@ function watch() {
   gulp.watch(paths.styles.watch, styles)
   gulp.watch(paths.scripts.watch, scripts)
   gulp.watch(paths.images.watch, images)
-  gulp.watch(paths.imagesWebp.watch, imagesWebp)
   gulp.watch(paths.favicons.watch, favicons)
-  gulp.watch(paths.pngSprite.watch, pngSprite)
   gulp.watch(paths.svgSpriteStack.watch, svgSpriteStack)
-  gulp.watch(paths.svgSpriteSymbol.watch, svgSpriteSymbol)
   gulp.watch(paths.fonts.watch, fonts)
 }
 
-gulp.task('default', gulp.series(clean, pngSprite, svgSpriteStack, svgSpriteSymbol, styles, views,scripts, images, imagesWebp, favicons, fonts, watch))
+gulp.task('default', gulp.series(clean, svgSpriteStack, styles, views, scripts, images, favicons, fonts, watch))
