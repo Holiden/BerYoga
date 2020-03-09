@@ -5,7 +5,10 @@
     "email": "holideny@gmail.com"
   },
   "main": "gulpfile.js",
-  "browserslist": "defaults",
+  "browserslist": [
+    "last 2 version",
+    "not dead"
+  ],
   "repository": "https://github.com/Holiden/BerYoga",
   "scripts": {
     "dev": "gulp --dev --sync",
