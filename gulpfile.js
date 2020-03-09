@@ -23,6 +23,7 @@ const gmq = require('gulp-group-css-media-queries')
 const sourceMaps = require('gulp-sourcemaps')
 const cssMin = require('gulp-clean-css')
 
+const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const concat = require('gulp-concat')
 const include = require('gulp-include')
@@ -192,6 +193,11 @@ function scripts() {
     .pipe(include())
     .pipe(gulpIf(argv.dev, sourceMaps.init()))
     .pipe(concat('main.js'))
+    .pipe(babel({
+      presets: [
+        '@babel/env'
+      ]
+    }))
     .pipe(gulpIf(argv.build, uglify()))
     .pipe(gulpIf(argv.build, rename({
       suffix: '.min'
