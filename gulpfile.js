@@ -157,9 +157,7 @@ function styles() {
     .pipe(less())
     .pipe(gmq())
     .pipe(postCSS([
-      autoPrefixer({
-        grid: 'no-autoplace'
-      }),
+      autoPrefixer(),
       pxToRem(),
       focus()
     ]))
