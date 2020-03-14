@@ -11,7 +11,10 @@ const buttonClose = document.querySelector('.js-buttonClose');
 const buttonIn = document.querySelector('.js-buttonIn');
 const buttonUp = document.querySelector('.js-buttonUp');
 const buttonResetLoginIn = document.querySelector('.js-buttonResetLoginIn');
+const buttonResetPasswordIn = document.querySelector('.js-buttonResetPasswordIn');
 const buttonResetLoginUp = document.querySelector('.js-buttonResetLoginUp');
+const buttonResetPasswordUp = document.querySelector('.js-buttonResetPasswordUp');
+const buttonResetPasswordConfirmUp = document.querySelector('.js-buttonResetPasswordConfirmUp');
 const buttonShowPasswordIn = document.querySelector('.js-buttonShowPasswordIn');
 const buttonShowPasswordUp = document.querySelector('.js-buttonShowPasswordUp');
 const buttonShowPasswordConfirmUp = document.querySelector('.js-buttonShowPasswordConfirmUp');
@@ -25,32 +28,32 @@ const inputPasswordConfirmUp = document.querySelector('.js-inputPasswordConfirmU
 
 buttonMenuLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
-  page.style.overflow = 'hidden';
+  page.setAttribute('style', 'overflow: hidden; margin-right: 17px;');
 });
 
 buttonPreviewLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
-  page.style.overflow = 'hidden';
+  page.setAttribute('style', 'overflow: hidden; margin-right: 17px;');
 });
 
 buttonPricesIndividualLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
-  page.style.overflow = 'hidden';
+  page.setAttribute('style', 'overflow: hidden; margin-right: 17px;');
 });
 
 buttonPricesBestLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
-  page.style.overflow = 'hidden';
+  page.setAttribute('style', 'overflow: hidden; margin-right: 17px;');
 });
 
 buttonPricesClassLogin.addEventListener('click', () => {
   modalLogin.classList.add('modal--active');
-  page.style.overflow = 'hidden';
+  page.setAttribute('style', 'overflow: hidden; margin-right: 17px;');
 });
 
 buttonClose.addEventListener('click', () => {
   modalLogin.classList.remove('modal--active');
-  page.style.overflow = 'auto';
+  page.setAttribute('style', 'overflow: auto; margin-right: 0;');
 });
 
 buttonSubmitIn.addEventListener('click', (event) => {
@@ -84,10 +87,20 @@ buttonResetLoginIn.addEventListener('click', (event) => {
 
 inputPasswordIn.addEventListener('keyup', () => {
   if (inputPasswordIn.value.length != 0) {
+    buttonResetPasswordIn.style.visibility = 'visible';
     buttonShowPasswordIn.style.visibility = 'visible';
   } else {
+    buttonResetPasswordIn.style.visibility = 'hidden';
     buttonShowPasswordIn.style.visibility = 'hidden';
   }
+});
+
+buttonResetPasswordIn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  inputPasswordIn.value = '';
+  buttonResetPasswordIn.style.visibility = 'hidden';
+  buttonShowPasswordIn.style.visibility = 'hidden';
 });
 
 buttonShowPasswordIn.addEventListener('click', () => {
@@ -119,10 +132,20 @@ buttonResetLoginUp.addEventListener('click', (event) => {
 
 inputPasswordUp.addEventListener('keyup', () => {
   if (inputPasswordUp.value.length != 0) {
+    buttonResetPasswordUp.style.visibility = 'visible';
     buttonShowPasswordUp.style.visibility = 'visible';
   } else {
+    buttonResetPasswordUp.style.visibility = 'hidden';
     buttonShowPasswordUp.style.visibility = 'hidden';
   }
+});
+
+buttonResetPasswordUp.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  inputPasswordUp.value = '';
+  buttonResetPasswordUp.style.visibility = 'hidden';
+  buttonShowPasswordUp.style.visibility = 'hidden';
 });
 
 buttonShowPasswordUp.addEventListener('click', () => {
@@ -139,10 +162,20 @@ buttonShowPasswordUp.addEventListener('click', () => {
 
 inputPasswordConfirmUp.addEventListener('keyup', () => {
   if (inputPasswordConfirmUp.value.length != 0) {
+    buttonResetPasswordConfirmUp.style.visibility = 'visible';
     buttonShowPasswordConfirmUp.style.visibility = 'visible';
   } else {
+    buttonResetPasswordConfirmUp.style.visibility = 'hidden';
     buttonShowPasswordConfirmUp.style.visibility = 'hidden';
   }
+});
+
+buttonResetPasswordConfirmUp.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  inputPasswordConfirmUp.value = '';
+  buttonResetPasswordConfirmUp.style.visibility = 'hidden';
+  buttonShowPasswordConfirmUp.style.visibility = 'hidden';
 });
 
 buttonShowPasswordConfirmUp.addEventListener('click', () => {
