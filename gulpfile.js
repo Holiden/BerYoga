@@ -11,7 +11,6 @@ const debug = require('gulp-debug')
 const newer = require('gulp-newer')
 
 const fileInclude = require('gulp-file-include')
-const critical = require('critical').stream
 const htmlMin = require('gulp-htmlmin')
 
 const less = require('gulp-less')
@@ -108,27 +107,6 @@ function views() {
     }))
     .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
     .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
-    .pipe(gulpIf(argv.build, critical({
-      base: 'paths.views.build',
-      css: [
-        './build/styles/main.min.css'
-      ],
-      dimensions: [{
-        width: 320,
-        height: 568
-        },
-        {
-        width: 768,
-        height: 1024
-        },
-        {
-        width: 1440,
-        height: 1280
-        }
-      ],
-      inline: true,
-      minify: true
-    })))
     .pipe(gulpIf(argv.build, htmlMin({
       collapseWhitespace: true,
       minifyCSS: true,
