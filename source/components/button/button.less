@@ -5,13 +5,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-weight: 500;
-  border-radius: 40px;
   transition: color 0.3s linear, background-color 0.3s linear;
   cursor: pointer;
 
   &--coral {
     border: 1px solid @color-coral;
+    border-radius: 40px;
+    font-weight: 500;
     color: @color-coral;
     background-color: transparent;
 
@@ -21,11 +21,13 @@
     }
 
     &:active {
-      background-color: @color-coral-dark;
+      background-color: @color-coral-light;
     }
   }
 
   &--blue {
+    border-radius: 40px;
+    font-weight: 500;
     color: @color-white;
     background-color: @color-blue;
 
@@ -43,8 +45,6 @@
     font-weight: 400;
     color: @color-blue;
     transition: color 0.3s linear;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
 
     &::before {
       position: absolute;
@@ -73,8 +73,8 @@
     height: 20px;
     width: 20px;
     padding: 20px;
-    background-color: transparent;
     border: none;
+    background-color: transparent;
     cursor: pointer;
 
     &::before,
