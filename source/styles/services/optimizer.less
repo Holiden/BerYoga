@@ -120,13 +120,27 @@ input[type="file"] {
   cursor: pointer;
 }
 
+input[disabled],
+input[readonly] {
+  cursor: not-allowed;
+}
+
+::-ms-clear,
+::-ms-reveal {
+  display: none;
+  width : 0;
+  height: 0;
+}
+
 ::-webkit-file-upload-button {
   font: inherit;
 }
 
-input[disabled],
-input[readonly] {
-  cursor: not-allowed;
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+  display: none;
 }
 
 button {
