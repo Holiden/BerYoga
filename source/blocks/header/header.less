@@ -25,6 +25,22 @@
     color: @color-coral;
   }
 
+  &__menu {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      font-weight: 500;
+      color: @color-coral;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+
   &__preview {
     .container;
     margin-bottom: 260px;
