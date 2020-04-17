@@ -16,8 +16,6 @@ const htmlMin = require('gulp-htmlmin')
 const less = require('gulp-less')
 const postCSS = require('gulp-postcss')
 const autoPrefixer = require('autoprefixer')
-const pxToRem = require('postcss-pxtorem')
-const focus = require('postcss-focus')
 const gmq = require('gulp-group-css-media-queries')
 const sourceMaps = require('gulp-sourcemaps')
 const cssMin = require('gulp-clean-css')
@@ -135,9 +133,7 @@ function styles() {
     .pipe(less())
     .pipe(gmq())
     .pipe(postCSS([
-      autoPrefixer(),
-      pxToRem(),
-      focus()
+      autoPrefixer()
     ]))
     .pipe(gulpIf(argv.build, cssMin({
       level: 2
