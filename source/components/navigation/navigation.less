@@ -10,9 +10,9 @@
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
-    height: calc(100% - 114px);
     width: 100%;
     height: calc(100% - 150px);
+    padding: 0 10px 40px;
     border-top: 1px solid @color-coral;
     border-bottom: 1px solid @color-coral;
     background-color: @color-white;
@@ -32,19 +32,11 @@
   &__list-site {
     display: flex;
     align-items: center;
-    margin: 0 104px;
-
-    @media (max-width: 1440px) {
-      margin: 0 54px;
-    }
+    margin: 0 70px;
 
     @media (max-width: 1024px) {
-      margin: 0 18px;
-    }
-
-    @media (max-width: 768px) {
       flex-direction: column;
-      margin: 0 0 36px;
+      margin: 0 0 40px;
     }
   }
 
@@ -68,11 +60,10 @@
         margin-right: 45px;
       }
 
-      @media (max-width: 1024px) {
-        margin-right: 27px;
-      }
+    &:not(:last-child) {
+      margin-right: 50px;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         margin-right: 0;
       }
     }
@@ -118,7 +109,6 @@
   }
 
   &__item-user {
-    margin: 5px 0;
 
     @media (max-width: 1024px) {
       max-width: 300px;
