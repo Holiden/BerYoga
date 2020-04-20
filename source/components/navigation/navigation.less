@@ -20,7 +20,6 @@
 
     &--active {
       left: 0;
-      display: flex;
     }
   }
 
@@ -59,6 +58,7 @@
       @media (max-width: 1440px) {
         margin-right: 45px;
       }
+    }
 
     &:not(:last-child) {
       margin-right: 50px;
@@ -71,8 +71,6 @@
 
   &__link-site {
     font-weight: 400;
-    line-height: 2;
-    color: @color-black-light;
     letter-spacing: 0.9px;
     transition: color 0.3s linear;
 
@@ -117,7 +115,6 @@
 
   &__link-user {
     min-width: 130px;
-    line-height: 2;
     letter-spacing: 0.9px;
 
     @media (max-width: 1024px) {
