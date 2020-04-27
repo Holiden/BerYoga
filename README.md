@@ -3,6 +3,8 @@
 
 Адаптивный кроссбраузерный лендинг
 
+[Ссылка](https://holiden.github.io/portfolio/BerYoga/index.html) на страницу
+
 ## Используемые технологии и инструменты
 1. `HTML`;
 2. `CSS` (`LESS`);
