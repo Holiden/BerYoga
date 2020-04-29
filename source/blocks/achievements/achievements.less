@@ -50,19 +50,18 @@
   }
 
   &__item {
-    margin-bottom: 55px;
     padding-left: 100px;
-
-    @media (max-width: 1024px) {
-      margin-bottom: 35px;
-    }
 
     @media (max-width: 768px) {
       padding-left: 50px;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &:not(:last-child) {
+      margin-bottom: 50px;
+
+      @media (max-width: 1024px) {
+        margin-bottom: 35px;
+      }
     }
   }
 
