@@ -1,15 +1,19 @@
 .main-footer {
-  .container;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   max-width: 1280px;
+  margin-bottom: 0;
   padding: 100px 120px 50px;
   border-radius: 175px 175px 0 0;
   background-color: @color-white-lightest;
 
+  @media (max-width: 1440px) {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 1024px) {
-    padding: 50px 120px 50px;
+    margin-bottom: 0;
   }
 
   @media (max-width: 768px) {
