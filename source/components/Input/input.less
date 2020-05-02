@@ -10,7 +10,13 @@
   transition: border-color 0.3s linear;
   cursor: pointer;
 
-  &:hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border: 1px solid @color-blue;
+    }
+  }
+
+  &:focus {
     border: 1px solid @color-blue;
   }
 
@@ -18,11 +24,6 @@
   &:not(:focus):valid ~ &__label {
     top: -13px;
     font-size: 14px;
-  }
-
-  &:focus ~ .button--dontshow,
-  &:not(:focus):valid ~ .button--dontshow {
-    visibility: visible;
   }
 
   &::placeholder {

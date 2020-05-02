@@ -51,15 +51,28 @@
     color: @color-gray-dark;
     transition: color 0.3s linear;
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: @color-black-light;
+      }
+    }
+
+    &:focus {
       color: @color-black-light;
     }
+
 
     &--active {
       border-bottom: 2px solid @color-blue;
       color: @color-black;
 
-      &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: @color-black;
+        }
+      }
+
+      &:focus {
         color: @color-black;
       }
     }

@@ -47,7 +47,13 @@
       text-align: center;
       transition: border-color 0.3s linear;
 
-      &:hover {
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          border-color: @color-coral;
+        }
+      }
+
+      &:focus {
         border-color: @color-coral;
       }
     }
@@ -84,6 +90,28 @@
       font-size: 14px;
     }
 
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: @color-coral;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    &:focus {
+      color: @color-coral;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:active {
+      color: @color-coral;
+    }
+
     &::after {
       display: block;
       height: 2px;
@@ -94,14 +122,6 @@
 
       @media (max-width: 1024px) {
         display: none;
-      }
-    }
-
-    &:hover {
-      color: @color-coral;
-
-      &::after {
-        width: 100%;
       }
     }
   }

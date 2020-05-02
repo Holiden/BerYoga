@@ -47,7 +47,13 @@
     text-decoration: underline;
     transition: color 0.3s linear;
 
-    &:hover {
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: @color-gray-dark-darker;
+      }
+    }
+
+    &:focus {
       color: @color-gray-dark-darker;
     }
 
