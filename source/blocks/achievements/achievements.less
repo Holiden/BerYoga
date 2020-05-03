@@ -14,6 +14,38 @@
     background: none;
   }
 
+  &__wrapper {
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: -1;
+      background-repeat: no-repeat;
+      content: "";
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &::before {
+      top: -160px;
+      left: 0;
+      width: 180px;
+      height: 380px;
+      background-image: url("./../images/achievements__bg--left.png");
+    }
+
+    &::after {
+      top: 70px;
+      right: 0;
+      width: 130px;
+      height: 490px;
+      background-image: url("./../images/achievements__bg--right.png");
+    }
+  }
+
   &__list {
     max-width: 600px;
 
