@@ -1,7 +1,7 @@
 <section class="modal js-login">
   <div class="modal__window">
     <header class="modal__header">
-      <button class="button button--close js-buttonClose" type="button"><span class="visually-hidden">Close</span></button>
+      <button class="button--close js-buttonClose" type="button"><span class="visually-hidden">Close</span></button>
       <h2 class="visually-hidden">Personal Area</h2>
       <button class="modal__tab modal__tab--active js-buttonIn" type="button" disabled>Sign In</button>
       <button class="modal__tab js-buttonUp" type="button">Sign Up</button>
@@ -9,17 +9,17 @@
     <section class="modal__sign-in modal__sign-in--active js-modalIn">
       <h2 class="visually-hidden">Sign In Area</h2>
       <form class="modal__form" id="signIn" action="#" method="post">
-        <div class="modal__wrapper">
+        <p class="modal__wrapper">
           <input class="input js-inputLoginIn" id="signInLogin" name="loginIn" type="text" placeholder="Login" required minlength="6" maxlength="30">
           <label class="input__label" for="signInLogin">Login</label>
           <button class="button--reset js-buttonResetLoginIn" type="reset"><span class="visually-hidden">Clear the field</span></button>
-        </div>
-        <div class="modal__wrapper">
+        </p>
+        <p class="modal__wrapper">
           <input class="input js-inputPasswordIn" id="signInPassword" name="passwordIn" type="password" placeholder="Password" required minlength="8" maxlength="12">
           <label class="input__label" for="signInPassword">Password</label>
           <button class="button--show js-buttonShowPasswordIn" type="button"><span class="visually-hidden">Show password</span></button>
           <button class="button--reset js-buttonResetPasswordIn" type="reset"><span class="visually-hidden">Clear the field</span></button>
-        </div>
+        </p>
         <button class="modal__button button button--blue js-buttonSubmitIn" type="submit">Sign In</button>
       </form>
       <a class="modal__link button--link" href="#" data-hover="Forgot password?">Forgot password?</a>
@@ -27,23 +27,23 @@
     <section class="modal__sign-up js-modalUp">
       <h2 class="visually-hidden">Sign Up Area</h2>
       <form class="modal__form" id="signUp" action="#" method="post">
-        <div class="modal__wrapper">
+        <p class="modal__wrapper">
           <input class="input js-inputLoginUp" id="signUpLogin" name="loginUp" type="text" placeholder="Login" required minlength="6" maxlength="30">
           <label class="input__label" for="signUpLogin">Login</label>
           <button class="button--reset js-buttonResetLoginUp" type="reset"><span class="visually-hidden">Clear the field</span></button>
-        </div>
-        <div class="modal__wrapper">
+        </p>
+        <p class="modal__wrapper">
           <input class="input js-inputPasswordUp" id="signUpPassword" name="passwordUp" type="password" placeholder="Password" required minlength="8" maxlength="12">
           <label class="input__label" for="signUpPassword">Password</label>
           <button class="button--show js-buttonShowPasswordUp" type="button"><span class="visually-hidden">Show password</span></button>
           <button class="button--reset js-buttonResetPasswordUp" type="reset"><span class="visually-hidden">Clear the field</span></button>
-        </div>
-        <div class="modal__wrapper">
+        </p>
+        <p class="modal__wrapper">
           <input class="input js-inputPasswordConfirmUp" id="signUpPasswordConfirm" name="passwordConfirmUp" type="password" placeholder="Confirm Password" required minlength="8" maxlength="12">
           <label class="input__label" for="signUpPasswordConfirm">Confirm Password</label>
           <button class="button--show js-buttonShowPasswordConfirmUp" type="button"><span class="visually-hidden">Show password</span></button>
           <button class="button--reset js-buttonResetPasswordConfirmUp" type="reset"><span class="visually-hidden">Clear the field</span></button>
-        </div>
+        </p>
         <label class="modal__wrapper checkbox" for="signUpCheckbox">
           <input class="checkbox__input" id="signUpCheckbox" type="checkbox" required>
           <span class="checkbox__box"></span>
