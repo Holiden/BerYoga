@@ -12,6 +12,25 @@
     background: none;
   }
 
+  &__wrapper {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 350px;
+      left: 0;
+      z-index: -1;
+      width: 220px;
+      height: 450px;
+      background: url("./../images/news__bg--left.png") center left -10px no-repeat;
+      content: "";
+
+      @media (max-width: 1440px) {
+        display: none;
+      }
+    }
+  }
+
   &__heading {
     max-width: 600px;
 
