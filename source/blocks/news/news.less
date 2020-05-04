@@ -65,19 +65,23 @@
   }
 
   &__text {
-    max-width: 390px;
-    padding-left: 55px;
+    max-width: 400px;
+    margin-left: 50px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+      max-width: 300px;
+    }
+
+    @media (max-width: 1024px) {
       max-width: none;
-      padding-left: 0;
+      margin-left: 0;
       text-align: center;
     }
   }
 
   &__link {
     align-self: flex-start;
-    margin-left: 55px;
+    margin-left: 50px;
     font-style: italic;
 
     @media (max-width: 768px) {
@@ -86,6 +90,7 @@
     }
 
     @media (max-width: 480px) {
+      padding-left: 10px;
       font-size: @font-size / 1.3;
     }
   }
