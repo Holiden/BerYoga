@@ -51,8 +51,9 @@
   }
 
   &__text {
-    max-width: 555px;
-    text-indent: 55px;
+    max-width: 550px;
+    text-indent: 50px;
+    text-align: justify;
 
     @media (max-width: 1024px) {
       text-align: center;
@@ -65,18 +66,14 @@
   }
 
   &__link {
-    align-self: flex-end;
     font-style: italic;
-
-    @media (max-width: 1024px) {
-      align-self: center;
-    }
 
     @media (max-width: 768px) {
       align-self: flex-end;
     }
 
     @media (max-width: 480px) {
+      padding-right: 10px;
       font-size: @font-size / 1.3;
     }
   }
