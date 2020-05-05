@@ -5,13 +5,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  border-radius: 40px;
+  font-weight: 500;
   transition: color 0.3s linear, background-color 0.3s linear;
   cursor: pointer;
 
   &--coral {
     border: 1px solid @color-coral;
-    border-radius: 40px;
-    font-weight: 500;
     color: @color-coral;
     background-color: transparent;
 
@@ -33,8 +33,6 @@
   }
 
   &--blue {
-    border-radius: 40px;
-    font-weight: 500;
     color: @color-white;
     background-color: @color-blue;
 
@@ -136,36 +134,29 @@
     }
   }
 
-  &--reset {
+  &--reset,
+  &--show,
+  &--dontshow {
     position: absolute;
     top: 50%;
-    right: 20px;
     transform: translateY(-50%);
     visibility: hidden;
-    height: 24px;
-    width: 24px;
+    height: 40px;
+    width: 40px;
+  }
+
+  &--reset {
+    right: 10px;
     background: url("./../images/sprites/sprite.stack.svg#reset") center / 24px 24px no-repeat;
   }
 
   &--show {
-    position: absolute;
-    top: 50%;
-    right: 48px;
-    transform: translateY(-50%);
-    visibility: hidden;
-    height: 24px;
-    width: 24px;
-    background: url("./../images/sprites/sprite.stack.svg#show") center / 24px 25px no-repeat;
+    right: 50px;
+    background: url("./../images/sprites/sprite.stack.svg#show") center / 24px 24px no-repeat;
   }
 
   &--dontshow {
-    position: absolute;
-    top: 50%;
-    right: 48px;
-    transform: translateY(-50%);
-    visibility: hidden;
-    height: 24px;
-    width: 24px;
-    background: url("./../images/sprites/sprite.stack.svg#dontshow") center / 24px 24px no-repeat;
+    right: 50px;
+    background: url("./../images/sprites/sprite.stack.svg#dontshow") center / 24px 25px no-repeat;
   }
 }
