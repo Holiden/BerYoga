@@ -126,7 +126,7 @@
     padding-left: 60px;
     font-weight: 400;
     color: @color-black;
-    background: url("./../images/check--blue.png") left center no-repeat;
+    background: url("./../images/check.png") left center no-repeat;
 
     @media (max-width: 480px) {
       margin-bottom: 10px;
@@ -135,8 +135,8 @@
       background-size: 25px 25px;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &:not(:last-child) {
+      margin-bottom: 20px;
     }
    }
 
@@ -208,9 +208,9 @@
   }
 
   &__link {
-    max-width: 225px;
+    max-width: 230px;
     min-height: 75px;
-    margin: 0 auto 55px;
+    margin: 0 auto 50px;
     font-weight: 500;
 
     @media (max-width: 480px) {
