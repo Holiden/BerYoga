@@ -1,5 +1,9 @@
 .prices {
 
+  @media (max-width: 768px) {
+    overflow-x: scroll;
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -8,52 +12,47 @@
     @media (max-width: 1180px) {
       justify-content: center;
     }
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+      padding: 50px 0;
+    }
   }
 
   &__item {
+    position: relative;
     display: flex;
     flex-direction: column;
-    flex: 0 0 33.33%;
-    min-width: 361px;
+    flex-basis: 33.33%;
+    min-width: 370px;
     min-height: 640px;
     border-radius: 20px;
     background-color: @color-white;
-    transition: transform 0.2s linear;
-
-    @media (max-width: 1180px) {
-      margin: 0 5px 10px;
-    }
-
-    @media (max-width: 768px) {
-      min-height: auto;
-    }
+    transition: transform 0.3s linear;
 
     @media (max-width: 480px) {
       min-width: 300px;
-    }
-
-    &:nth-child(1) {
-      box-shadow: -20px 5px 50px 0 @color-coral;
-
-      @media (max-width: 1180px) {
-        box-shadow: 0 0 50px 0 @color-coral;
-      }
+      min-height: auto;
     }
 
     &:nth-child(2) {
       z-index: 1;
       box-shadow: 0 0 50px 0 @color-coral;
-
-      @media (max-width: 1180px) {
-        order: 1;
-      }
     }
 
     &:nth-child(3) {
-      box-shadow: 20px 5px 50px 0 @color-coral;
+      box-shadow: 20px 0 50px 0 @color-coral;
 
       @media (max-width: 1180px) {
-        box-shadow: 0 0 50px 0 @color-coral;
+        right: 20%;
+      }
+
+      @media (max-width: 1024px) {
+        right: 30%;
+      }
+
+      @media (max-width: 768px) {
+        right: 0;
       }
     }
 
@@ -114,15 +113,9 @@
     flex-grow: 1;
     margin-bottom: 30px;
     padding: 50px 50px 0;
-
-    @media (max-width: 768px) {
-      margin-bottom: 30px;
-      padding: 30px 50px 0;
-    }
   }
 
   &__pros {
-    margin-bottom: 20px;
     padding-left: 60px;
     font-weight: 400;
     color: @color-black;
@@ -154,10 +147,6 @@
 
     @media (max-width: 1180px) {
       font-size: 120px;
-    }
-
-    @media (max-width: 768px) {
-      margin-bottom: 20px;
     }
 
     @media (max-width: 480px) {
@@ -197,10 +186,6 @@
     font-weight: 400;
     color: @color-black;
     text-align: center;
-
-    @media (max-width: 768px) {
-      margin-bottom: 20px;
-    }
 
     @media (max-width: 480px) {
       font-size: @font-size / 1.3;
