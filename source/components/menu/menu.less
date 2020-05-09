@@ -3,26 +3,27 @@
   display: inline-block;
   height: 40px;
   width: 40px;
+  overflow: hidden;
+  z-index: 10;
 
   &__inner {
     top: 50%;
     transform: translateY(-50%);
-    display: block;
+    transition: transform 0.1s linear;
 
     &,
     &::before,
     &::after {
       position: absolute;
+      display: block;
       height: 4px;
       width: 40px;
       border-radius: 4px;
-      background-color: @color-coral;
-      transition: transform 0.1s linear;
+      background-color: #000000;
     }
 
     &::before,
     &::after {
-      display: block;
       content: "";
     }
 
@@ -39,7 +40,7 @@
 
   &--active {
     .menu__inner {
-      transform: rotate(45deg);
+      transform:  translateY(-50%) rotate(45deg);
       transition: transform 0.1s 0.2s linear;
 
       &::before {
