@@ -108,7 +108,7 @@
       left: 50%;
       height: 2px;
       width: 20px;
-      background-color: #000000;
+      background-color: @color-black;
       transition: background-color 0.3s linear;
       content: "";
     }
@@ -124,13 +124,13 @@
     @media (hover: hover) and (pointer: fine) {
       &:hover::before,
       &:hover::after {
-        background-color: #ff6a6d;
+        background-color: @color-coral;
       }
     }
 
     &:focus::before,
     &:focus::after {
-      background-color: #ff6a6d;
+      background-color: @color-coral;
     }
   }
 
