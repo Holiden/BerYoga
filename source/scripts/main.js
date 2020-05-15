@@ -1,1 +1,1 @@
-//=require ./../blocks/blocks.js
+//=include("./../blocks/blocks.js")

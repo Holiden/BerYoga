@@ -2,17 +2,20 @@
 * text=auto
 
 # Source code
-*.html  text
+*.css   text diff=css
+*.html  text diff=html
 *.js    text
 *.json  text
-*.less  text
+*.less  text diff=css
+*.map   text
 
 # Documentation
-*.md     text
-LICENSE  text
+*.md  text
+
+# Templates
+*.handlebars  text
 
 # Configs
-*.handlebars       text
 .editorconfig      text
 .gitattributes     text
 .gitignore         text
@@ -20,8 +23,11 @@ package-lock.json  text -diff
 
 # Graphics
 *.ico   binary
+*.jpg   binary
+*.jpeg  binary
 *.png   binary
 *.svg   text
+*.webp  binary
 
 # Fonts
 *.woff   binary

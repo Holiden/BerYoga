@@ -8,12 +8,8 @@
 ## Используемые технологии и инструменты
 1. `HTML`;
 2. `CSS` (`LESS`);
-3. `Gulp`;
-4. `БЭМ`;
-5. `VS Code`;
-6. `Avocode`;
-7. `Photoshop`;
-8. `Desktop First`.
+3. `JS`;
+3. `Gulp`.
 
 ## Контакты
 <holideny@gmail.com>  

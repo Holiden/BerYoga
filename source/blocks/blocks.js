@@ -1,2 +1,2 @@
-//=require ./header/header.js
-//=require ./modal/modal.js
+//=include("./header/header.js")
+//=include("./modal/modal.js")

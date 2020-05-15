@@ -1,19 +1,21 @@
 {
+  "main": "gulpfile.js",
+  "scripts": {
+    "development": "gulp --dev --sync",
+    "build": "gulp --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Holiden/BerYoga"
+  },
   "author": {
     "name": "Alexander Holiden Diakonov",
     "email": "holideny@gmail.com"
   },
-  "main": "gulpfile.js",
   "browserslist": [
     "last 2 version",
     "not dead"
   ],
-  "repository": "https://github.com/Holiden/BerYoga",
-  "scripts": {
-    "dev": "gulp --dev --sync",
-    "fix": "gulp --dev",
-    "build": "gulp --build"
-  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
@@ -31,7 +33,6 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^6.2.0",
-    "gulp-include": "^2.4.1",
     "gulp-less": "^4.0.1",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
@@ -42,7 +43,10 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
+    "imagemin-webp": "^5.1.0",
     "yargs": "^13.3.2"
   }
 }
