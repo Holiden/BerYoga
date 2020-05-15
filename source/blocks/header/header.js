@@ -1,6 +1,7 @@
+const navigationMenuButton = document.querySelector('.menu');
+const navigationMenu = document.querySelector('.navigation');
+
 (function () {
-  const navigationMenuButton = document.querySelector('.menu');
-  const navigationMenu = document.querySelector('.navigation');
 
   const isMenuHiddenCheck = () => {
     let attributeValueExpanded = navigationMenuButton.getAttribute('aria-expanded');
