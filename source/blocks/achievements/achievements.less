@@ -5,6 +5,10 @@
   align-items: flex-end;
   background: url("./../images/achievements__bg.png") no-repeat;
 
+  @supports (-webkit-appearance: none) {
+    background-image: url("./../images/achievements__bg.webp");
+  }
+
   @media (max-width: 1180px) {
     align-items: center;
     background: none;
@@ -31,6 +35,10 @@
       width: 180px;
       height: 380px;
       background-image: url("./../images/achievements__bg--left.png");
+
+      @supports (-webkit-appearance: none) {
+        background-image: url("./../images/achievements__bg--left.webp");
+      }
     }
 
     &::after {
@@ -39,6 +47,10 @@
       width: 130px;
       height: 490px;
       background-image: url("./../images/achievements__bg--right.png");
+
+      @supports (-webkit-appearance: none) {
+        background-image: url("./../images/achievements__bg--right.webp");
+      }
     }
   }
 

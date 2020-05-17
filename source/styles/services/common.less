@@ -4,7 +4,12 @@
   line-height: 2.2;
   font-family: @font-family;
   color: @color-black-light;
-  background: url("./../images/header__bg.png") center top / 100% auto no-repeat, url("./../images/footer__bg.png") center bottom / 100% 25% no-repeat;
+
+  @supports (-webkit-appearance: none) {
+    background-image:
+    url("./../images/header__bg.webp"),
+    url("./../images/footer__bg.webp");
+  }
 
   @media (max-width: 1440px) {
     background-position: 60% top, center bottom;
