@@ -9,7 +9,10 @@
 1. `HTML`;
 2. `CSS` (`LESS`);
 3. `JS`;
-3. `Gulp`.
+4. `VSCode`;
+5. `Photoshop`;
+6. `Avocode`;
+7. `Gulp`.
 
 ## Контакты
 <holideny@gmail.com>  
