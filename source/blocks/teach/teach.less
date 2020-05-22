@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: url("./../images/teach__bg.png") left center / 590px auto no-repeat;
+  background-image: url("./../images/teach__bg.png");
+  background-position: left center;
+  background-size: 590px auto;
+  background-repeat: no-repeat;
 
   @supports (-webkit-appearance: none) {
     background-image: url("./../images/teach__bg.webp");
@@ -33,7 +36,13 @@
       z-index: -1;
       width: 200px;
       height: 710px;
-      background: url("./../images/teach__bg--right-bottom.png") bottom right -10px no-repeat, url("./../images/teach__bg--right-top.png") top right no-repeat;
+      background-image:
+        url("./../images/teach__bg--right-bottom.png"),
+        url("./../images/teach__bg--right-top.png");
+      background-position:
+        right -10px bottom,
+        right top;
+      background-repeat: no-repeat;
       content: "";
 
       @supports (-webkit-appearance: none) {

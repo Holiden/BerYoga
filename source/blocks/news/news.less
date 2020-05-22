@@ -1,6 +1,10 @@
 .news {
   display: flex;
   flex-direction: column;
+  background-image: url("./../images/news__bg.png");
+  background-position: center right;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   @supports (-webkit-appearance: none) {
     background-image: url("./../images/news__bg.webp");
@@ -26,7 +30,9 @@
       z-index: -1;
       width: 220px;
       height: 450px;
-      background: url("./../images/news__bg--left.png") center left -10px no-repeat;
+      background-image: url("./../images/news__bg--left.png");
+      background-position: left -10px center;
+      background-repeat: no-repeat;
       content: "";
 
       @supports (-webkit-appearance: none) {
