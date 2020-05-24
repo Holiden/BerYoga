@@ -103,220 +103,220 @@ const paths = {
 
 function views() {
   return gulp.src(paths.views.source)
-  .pipe(plumber({
-    errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'HTML Error'
-    }),
-    function() {
-      this.emit('end');
-    }
-  }))
-  .pipe(fileInclude({
-    prefix: '//='
-  }))
-  .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
-  .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
-  .pipe(gulpIf(argv.build, htmlMin({
-    collapseWhitespace: true,
-    minifyCSS: true,
-    minifyJS: true,
-    removeComments: true
-  })))
-  .pipe(debug({
-    title: 'HTML:'
-  }))
-  .pipe(gulp.dest(paths.views.build))
-  .on('end', browserSync.reload);
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'HTML Error'
+      }),
+      function() {
+        this.emit('end');
+      }
+    }))
+    .pipe(fileInclude({
+      prefix: '//='
+    }))
+    .pipe(gulpIf(argv.build, replace('.css', '.min.css')))
+    .pipe(gulpIf(argv.build, replace('.js', '.min.js')))
+    .pipe(gulpIf(argv.build, htmlMin({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true
+    })))
+    .pipe(debug({
+      title: 'HTML:'
+    }))
+    .pipe(gulp.dest(paths.views.build))
+    .on('end', browserSync.reload);
 }
 
 function styles() {
   return gulp.src(paths.styles.source)
-  .pipe(plumber({
-    errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'CSS Error'
-    }),
-    function() {
-      this.emit('end');
-    }
-  }))
-  .pipe(gulpIf(argv.dev, sourceMaps.init()))
-  .pipe(less())
-  .pipe(gmq())
-  .pipe(postCSS([
-    autoPrefixer()
-  ]))
-  .pipe(gulpIf(argv.build, cssMin({
-    level: 2
-  })))
-  .pipe(gulpIf(argv.build, rename({
-    suffix: '.min'
-  })))
-  .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
-    addComment: false
-  })))
-  .pipe(debug({
-    title: 'CSS:'
-  }))
-  .pipe(gulp.dest(paths.styles.build))
-  .pipe(browserSync.stream());
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'CSS Error'
+      }),
+      function() {
+        this.emit('end');
+      }
+    }))
+    .pipe(gulpIf(argv.dev, sourceMaps.init()))
+    .pipe(less())
+    .pipe(gmq())
+    .pipe(postCSS([
+      autoPrefixer()
+    ]))
+    .pipe(gulpIf(argv.build, cssMin({
+      level: 2
+    })))
+    .pipe(gulpIf(argv.build, rename({
+      suffix: '.min'
+    })))
+    .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
+      addComment: false
+    })))
+    .pipe(debug({
+      title: 'CSS:'
+    }))
+    .pipe(gulp.dest(paths.styles.build))
+    .pipe(browserSync.stream());
 }
 
 function scripts() {
   return gulp.src(paths.scripts.source)
-  .pipe(plumber({
-    errorHandler: notify.onError({
-      message: 'Error: <%= error.message %>',
-      title: 'HTML Error'
-    }),
-    function() {
-      this.emit('end');
-    }
-  }))
-  .pipe(fileInclude({
-    prefix: '//='
-  }))
-  .pipe(gulpIf(argv.dev, sourceMaps.init()))
-  .pipe(concat('main.js'))
-  .pipe(babel({
-    presets: [
-      '@babel/env'
-    ]
-  }))
-  .pipe(gulpIf(argv.build, uglify()))
-  .pipe(gulpIf(argv.build, rename({
-    suffix: '.min'
-  })))
-  .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
-    addComment: false
-  })))
-  .pipe(debug({
-    title: 'JS:'
-  }))
-  .pipe(gulp.dest(paths.scripts.build))
-  .on('end', browserSync.reload);
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error: <%= error.message %>',
+        title: 'HTML Error'
+      }),
+      function() {
+        this.emit('end');
+      }
+    }))
+    .pipe(fileInclude({
+      prefix: '//='
+    }))
+    .pipe(gulpIf(argv.dev, sourceMaps.init()))
+    .pipe(concat('main.js'))
+    .pipe(babel({
+      presets: [
+        '@babel/env'
+      ]
+    }))
+    .pipe(gulpIf(argv.build, uglify()))
+    .pipe(gulpIf(argv.build, rename({
+      suffix: '.min'
+    })))
+    .pipe(gulpIf(argv.dev, sourceMaps.write('./maps/', {
+      addComment: false
+    })))
+    .pipe(debug({
+      title: 'JS:'
+    }))
+    .pipe(gulp.dest(paths.scripts.build))
+    .on('end', browserSync.reload);
 }
 
 function images() {
   return gulp.src(paths.images.source)
-  .pipe(newer(paths.images.build))
-  .pipe(gulpIf(argv.build, imageMin([
-    imageMin.gifsicle({
-      interlaced: true,
-      optimizationLevel: 3
-    }),
-    imageMinJpeg({
-      smooth: 10,
-      quality: 70
-    }),
-    imageMinPng({
-      dithering: 0.4,
-      speed: 1,
-      strip: true,
-      quality: [0, 1]
-    }),
-    imageMin.svgo({
-      plugins: [
-        {cleanupListOfValues: true},
-        {removeOffCanvasPaths: true},
-        {removeScriptElement: true},
-        {sortAttrs: true}
-      ]
-    })
-  ])))
-  .pipe(debug({
-    title: 'Images:'
-  }))
-  .pipe(gulp.dest(paths.images.build));
+    .pipe(newer(paths.images.build))
+    .pipe(gulpIf(argv.build, imageMin([
+      imageMin.gifsicle({
+        interlaced: true,
+        optimizationLevel: 3
+      }),
+      imageMinJpeg({
+        smooth: 10,
+        quality: 70
+      }),
+      imageMinPng({
+        dithering: 0.4,
+        speed: 1,
+        strip: true,
+        quality: [0, 1]
+      }),
+      imageMin.svgo({
+        plugins: [
+          { cleanupListOfValues: true },
+          { removeOffCanvasPaths: true },
+          { removeScriptElement: true },
+          { sortAttrs: true }
+        ]
+      })
+    ])))
+    .pipe(debug({
+      title: 'Images:'
+    }))
+    .pipe(gulp.dest(paths.images.build));
 }
 
 function imagesWebp() {
   return gulp.src(paths.imagesWebp.source)
-  .pipe(newer({
-    dest: paths.imagesWebp.build,
-    ext: '.webp'
-  }))
-  .pipe(webp(gulpIf(argv.build, imageMin([
-    imageMinWebp({
-      alphaQuality: 70,
-      lossless: true,
-      method: 6,
-      quality: 70
-    })
-  ]))))
-  .pipe(debug({
-    title: 'ImagesWebp:'
-  }))
-  .pipe(gulp.dest(paths.imagesWebp.build));
+    .pipe(newer({
+      dest: paths.imagesWebp.build,
+      ext: '.webp'
+    }))
+    .pipe(webp(gulpIf(argv.build, imageMin([
+      imageMinWebp({
+        alphaQuality: 70,
+        lossless: true,
+        method: 6,
+        quality: 70
+      })
+    ]))))
+    .pipe(debug({
+      title: 'ImagesWebp:'
+    }))
+    .pipe(gulp.dest(paths.imagesWebp.build));
 }
 
 function spriteSvg() {
   return gulp.src(paths.spriteSvg.source)
-  .pipe(gulpIf(argv.build,imageMin([
-    imageMin.svgo({
-      plugins: [
-        {cleanupListOfValues: true},
-        {removeOffCanvasPaths: true},
-        {removeScriptElement: true},
-        {sortAttrs: true}
-      ]
-    })
-  ])))
-  .pipe(svgSprite({
-    dest: './',
-    mode: {
-      stack: {
-        dest: './',
-        prefix: '',
-        render: {
-          less: {
-            dest: './../../../source/styles/helpers/spriteSvg.less',
-            template: './source/styles/helpers/spriteSvg.handlebars'
-          }
-        },
-        sprite: 'sprite.svg'
+    .pipe(gulpIf(argv.build, imageMin([
+      imageMin.svgo({
+        plugins: [
+          { cleanupListOfValues: true },
+          { removeOffCanvasPaths: true },
+          { removeScriptElement: true },
+          { sortAttrs: true }
+        ]
+      })
+    ])))
+    .pipe(svgSprite({
+      dest: './',
+      mode: {
+        stack: {
+          dest: './',
+          prefix: '',
+          render: {
+            less: {
+              dest: './../../../source/styles/helpers/spriteSvg.less',
+              template: './source/styles/helpers/spriteSvg.hbs'
+            }
+          },
+          sprite: 'sprite.svg'
+        }
+      },
+      svg: {
+        xmlDeclaration: ''
       }
-    },
-    svg: {
-      xmlDeclaration: ''
-    }
-  }))
-  .pipe(replace('-dims', ''))
-  .pipe(debug({
-    title: 'Sprite SVG:'
-  }))
-  .pipe(gulp.dest(paths.spriteSvg.build));
+    }))
+    .pipe(replace('-dims', ''))
+    .pipe(debug({
+      title: 'Sprite SVG:'
+    }))
+    .pipe(gulp.dest(paths.spriteSvg.build));
 }
 
 function favicons() {
   return gulp.src(paths.favicons.source)
-  .pipe(newer(paths.favicons.build))
-  .pipe(favicon({
-    icons: {
-      android: false,
-      appleIcon: false,
-      appleStartup: false,
-      coast: false,
-      favicons: true,
-      firefox: false,
-      windows: false,
-      yandex: false
-    }
-  }))
-  .pipe(debug({
-    title: 'Favicons:'
-  }))
-  .pipe(gulp.dest(paths.favicons.build));
+    .pipe(newer(paths.favicons.build))
+    .pipe(favicon({
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        windows: false,
+        yandex: false
+      }
+    }))
+    .pipe(debug({
+      title: 'Favicons:'
+    }))
+    .pipe(gulp.dest(paths.favicons.build));
 }
 
 function fonts() {
   return gulp.src(paths.fonts.source)
-  .pipe(newer(paths.fonts.build))
-  .pipe(debug({
-    title: 'Fonts:'
-  }))
-  .pipe(gulp.dest(paths.fonts.build));
+    .pipe(newer(paths.fonts.build))
+    .pipe(debug({
+      title: 'Fonts:'
+    }))
+    .pipe(gulp.dest(paths.fonts.build));
 }
 
 function clean() {
